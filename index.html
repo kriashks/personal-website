@@ -6,10 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>John Doe - Personal Website</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Additional Tailwind CSS classes for animations */
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .slide-up {
+            animation: slideUp 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            0% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 
 <body class="bg-gray-100 text-gray-900">
-    <header class="bg-white shadow-md">
+    <header class="bg-white shadow-md fade-in">
         <div class="container mx-auto p-4 flex justify-between items-center">
             <h1 class="text-2xl font-semibold">John Doe</h1>
             <nav>
@@ -21,7 +53,7 @@
     </header>
 
     <main class="container mx-auto p-4">
-        <section id="about" class="my-12">
+        <section id="about" class="my-12 slide-up">
             <h2 class="text-3xl font-semibold mb-4">About Me</h2>
             <p class="text-gray-700 leading-relaxed">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod enim a metus sollicitudin, et
@@ -29,25 +61,25 @@
             </p>
         </section>
 
-        <section id="portfolio" class="my-12">
+        <section id="portfolio" class="my-12 slide-up">
             <h2 class="text-3xl font-semibold mb-4">Portfolio</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white rounded-lg shadow-md p-4">
+                <div class="bg-white rounded-lg shadow-md p-4 transition transform hover:scale-105">
                     <h3 class="text-xl font-semibold mb-2">Project One</h3>
                     <p class="text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-4">
+                <div class="bg-white rounded-lg shadow-md p-4 transition transform hover:scale-105">
                     <h3 class="text-xl font-semibold mb-2">Project Two</h3>
                     <p class="text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-4">
+                <div class="bg-white rounded-lg shadow-md p-4 transition transform hover:scale-105">
                     <h3 class="text-xl font-semibold mb-2">Project Three</h3>
                     <p class="text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="my-12">
+        <section id="contact" class="my-12 slide-up">
             <h2 class="text-3xl font-semibold mb-4">Contact</h2>
             <form class="bg-white rounded-lg shadow-md p-6">
                 <div class="mb-4">
@@ -62,12 +94,12 @@
                     <label for="message" class="block text-gray-700">Message</label>
                     <textarea id="message" class="w-full mt-1 p-2 border border-gray-300 rounded-md"></textarea>
                 </div>
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Send</button>
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-transform transform hover:scale-105">Send</button>
             </form>
         </section>
     </main>
 
-    <footer class="bg-white shadow-md mt-12 p-4">
+    <footer class="bg-white shadow-md mt-12 p-4 fade-in">
         <div class="container mx-auto text-center text-gray-600">
             © 2024 John Doe. All rights reserved.
         </div>
