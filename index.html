@@ -37,6 +37,10 @@
                 opacity: 1;
             }
         }
+
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 
@@ -48,6 +52,7 @@
                 <a href="#about" class="text-gray-600 hover:text-gray-900 mx-2">About</a>
                 <a href="#portfolio" class="text-gray-600 hover:text-gray-900 mx-2">Portfolio</a>
                 <a href="#contact" class="text-gray-600 hover:text-gray-900 mx-2">Contact</a>
+                <a href="#resume" class="text-gray-600 hover:text-gray-900 mx-2" onclick="toggleResume()">Resume</a>
             </nav>
         </div>
     </header>
@@ -97,6 +102,35 @@
                 <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-transform transform hover:scale-105">Send</button>
             </form>
         </section>
+
+        <section id="resume" class="my-12 slide-up hidden">
+            <h2 class="text-3xl font-semibold mb-4">Resume</h2>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-2xl font-semibold mb-4">John Doe</h3>
+                <p class="mb-2"><strong>Objective:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h4 class="text-xl font-semibold mt-4">Experience</h4>
+                <ul class="list-disc list-inside">
+                    <li class="mb-2"><strong>Software Engineer</strong> at ABC Corp (2020 - Present)
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                    </li>
+                    <li class="mb-2"><strong>Web Developer</strong> at XYZ Inc (2018 - 2020)
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                    </li>
+                </ul>
+                <h4 class="text-xl font-semibold mt-4">Education</h4>
+                <ul class="list-disc list-inside">
+                    <li class="mb-2"><strong>Master of Science in Computer Science</strong>, University of Lorem Ipsum (2016 - 2018)</li>
+                    <li class="mb-2"><strong>Bachelor of Science in Information Technology</strong>, College of Dolor Sit (2012 - 2016)</li>
+                </ul>
+                <h4 class="text-xl font-semibold mt-4">Skills</h4>
+                <ul class="list-disc list-inside">
+                    <li class="mb-2">Programming Languages: JavaScript, Python, Java</li>
+                    <li class="mb-2">Web Technologies: HTML, CSS, React, Node.js</li>
+                    <li class="mb-2">Databases: MySQL, MongoDB</li>
+                </ul>
+                <a href="resume.doc" download="John_Doe_Resume.doc" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-transform transform hover:scale-105 mt-4 inline-block">Download Resume</a>
+            </div>
+        </section>
     </main>
 
     <footer class="bg-white shadow-md mt-12 p-4 fade-in">
@@ -104,6 +138,13 @@
             © 2024 John Doe. All rights reserved.
         </div>
     </footer>
+
+    <script>
+        function toggleResume() {
+            var resumeSection = document.getElementById('resume');
+            resumeSection.classList.toggle('hidden');
+        }
+    </script>
 </body>
 
 </html>
