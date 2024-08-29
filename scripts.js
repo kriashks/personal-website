@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Set up navigation
     const navLinks = document.querySelectorAll('nav a');
-
     navLinks.forEach(link => {
         link.addEventListener('click', event => {
             event.preventDefault();
@@ -31,15 +31,19 @@ function showSection(sectionId) {
 }
 
 function initGallery() {
-    // Manually list the images here
+    // Assuming you have multiple images in the folder images/about/
     const images = [
         'images/about/image1.jpg',
         'images/about/image2.jpg',
         'images/about/image3.jpg',
         // Add more images as needed
     ];
+    
     let currentIndex = 0;
     const galleryContainer = document.querySelector('.gallery');
+
+    // Clear the gallery container if any previous images were added
+    galleryContainer.innerHTML = '';
 
     // Create img elements for each image
     images.forEach((imageSrc, index) => {
