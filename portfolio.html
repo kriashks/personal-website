@@ -1,17 +1,55 @@
-<section id="portfolio" class="my-12 slide-up">
-    <h2 class="text-3xl font-semibold mb-4">Portfolio</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-white rounded-lg shadow-md p-4 transition transform hover:scale-105">
-            <h3 class="text-xl font-semibold mb-2">Project One</h3>
-            <p class="text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe - Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-gray-100 text-gray-900">
+    <!-- Header Section -->
+    <header class="bg-white shadow-md fade-in">
+        <div class="container mx-auto p-4 flex justify-between items-center">
+            <h1 class="text-2xl font-semibold">John Doe</h1>
+            <nav>
+                <a href="index.html" class="text-gray-600 hover:text-gray-900 mx-2">About</a>
+                <a href="portfolio.html" class="text-gray-600 hover:text-gray-900 mx-2">Portfolio</a>
+                <a href="contact.html" class="text-gray-600 hover:text-gray-900 mx-2">Contact</a>
+                <a href="resume.html" class="text-gray-600 hover:text-gray-900 mx-2">Resume</a>
+            </nav>
         </div>
-        <div class="bg-white rounded-lg shadow-md p-4 transition transform hover:scale-105">
-            <h3 class="text-xl font-semibold mb-2">Project Two</h3>
-            <p class="text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4">
+        <section id="portfolio" class="my-12 slide-up">
+            <h2 class="text-3xl font-semibold mb-4">Portfolio</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-lg shadow-md p-4 transition transform hover:scale-105">
+                    <h3 class="text-xl font-semibold mb-2">Project One</h3>
+                    <p class="text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4 transition transform hover:scale-105">
+                    <h3 class="text-xl font-semibold mb-2">Project Two</h3>
+                    <p class="text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4 transition transform hover:scale-105">
+                    <h3 class="text-xl font-semibold mb-2">Project Three</h3>
+                    <p class="text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-white shadow-md mt-12 p-4 fade-in">
+        <div class="container mx-auto text-center text-gray-600">
+            © 2024 John Doe. All rights reserved.
         </div>
-        <div class="bg-white rounded-lg shadow-md p-4 transition transform hover:scale-105">
-            <h3 class="text-xl font-semibold mb-2">Project Three</h3>
-            <p class="text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-    </div>
-</section>
+    </footer>
+</body>
+
+</html>
