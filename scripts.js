@@ -1,3 +1,17 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            const sectionId = event.target.getAttribute('data-section');
+            showSection(sectionId);
+        });
+    });
+
+    // Show the "About" section by default
+    showSection('about');
+});
+
 function showSection(sectionId) {
     // Hide all sections
     const sections = document.querySelectorAll('main section');
@@ -11,8 +25,3 @@ function showSection(sectionId) {
         selectedSection.classList.remove('hidden');
     }
 }
-
-// Default to showing the About section on page load
-window.addEventListener('DOMContentLoaded', () => {
-    showSection('about');
-});

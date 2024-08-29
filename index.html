@@ -15,14 +15,10 @@
         <div class="container mx-auto p-4 flex justify-between items-center">
             <h1 class="text-2xl font-semibold">John Doe</h1>
             <nav>
-                <a href="#" class="text-gray-600 hover:text-gray-900 mx-2"
-                    onclick="showSection('about'); return false;">About</a>
-                <a href="#" class="text-gray-600 hover:text-gray-900 mx-2"
-                    onclick="showSection('portfolio'); return false;">Portfolio</a>
-                <a href="#" class="text-gray-600 hover:text-gray-900 mx-2"
-                    onclick="showSection('contact'); return false;">Contact</a>
-                <a href="#" class="text-gray-600 hover:text-gray-900 mx-2"
-                    onclick="showSection('resume'); return false;">Resume</a>
+                <a href="#" class="nav-link text-gray-600 hover:text-gray-900 mx-2" data-section="about">About</a>
+                <a href="#" class="nav-link text-gray-600 hover:text-gray-900 mx-2" data-section="portfolio">Portfolio</a>
+                <a href="#" class="nav-link text-gray-600 hover:text-gray-900 mx-2" data-section="contact">Contact</a>
+                <a href="#" class="nav-link text-gray-600 hover:text-gray-900 mx-2" data-section="resume">Resume</a>
             </nav>
         </div>
     </header>
@@ -30,7 +26,7 @@
     <!-- Main Content -->
     <main class="container mx-auto p-4">
         <!-- About Section -->
-        <section id="about" class="my-12 slide-up">
+        <section id="about" class="my-12">
             <h2 class="text-3xl font-semibold mb-4">About Me</h2>
             <p class="text-gray-700 leading-relaxed">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod enim a metus sollicitudin, et
@@ -39,7 +35,7 @@
         </section>
 
         <!-- Portfolio Section -->
-        <section id="portfolio" class="my-12 slide-up hidden">
+        <section id="portfolio" class="my-12 hidden">
             <h2 class="text-3xl font-semibold mb-4">Portfolio</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="bg-white rounded-lg shadow-md p-4 transition transform hover:scale-105">
@@ -58,7 +54,7 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="my-12 slide-up hidden">
+        <section id="contact" class="my-12 hidden">
             <h2 class="text-3xl font-semibold mb-4">Contact</h2>
             <form class="bg-white rounded-lg shadow-md p-6">
                 <div class="mb-4">
@@ -73,13 +69,12 @@
                     <label for="message" class="block text-gray-700">Message</label>
                     <textarea id="message" class="w-full mt-1 p-2 border border-gray-300 rounded-md"></textarea>
                 </div>
-                <button type="submit"
-                    class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-transform transform hover:scale-105">Send</button>
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-transform transform hover:scale-105">Send</button>
             </form>
         </section>
 
         <!-- Resume Section -->
-        <section id="resume" class="my-12 slide-up hidden">
+        <section id="resume" class="my-12 hidden">
             <h2 class="text-3xl font-semibold mb-4">Resume</h2>
             <div class="bg-white rounded-lg shadow-md p-6">
                 <h3 class="text-2xl font-semibold mb-4">John Doe</h3>
@@ -95,10 +90,8 @@
                 </ul>
                 <h4 class="text-xl font-semibold mt-4">Education</h4>
                 <ul class="list-disc list-inside">
-                    <li class="mb-2"><strong>Master of Science in Computer Science</strong>, University of Lorem Ipsum
-                        (2016 - 2018)</li>
-                    <li class="mb-2"><strong>Bachelor of Science in Information Technology</strong>, College of Dolor
-                        Sit (2012 - 2016)</li>
+                    <li class="mb-2"><strong>Master of Science in Computer Science</strong>, University of Lorem Ipsum (2016 - 2018)</li>
+                    <li class="mb-2"><strong>Bachelor of Science in Information Technology</strong>, College of Dolor Sit (2012 - 2016)</li>
                 </ul>
                 <h4 class="text-xl font-semibold mt-4">Skills</h4>
                 <ul class="list-disc list-inside">
@@ -106,9 +99,7 @@
                     <li class="mb-2">Web Technologies: HTML, CSS, React, Node.js</li>
                     <li class="mb-2">Databases: MySQL, MongoDB</li>
                 </ul>
-                <a href="resume.doc" download="John_Doe_Resume.doc"
-                    class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-transform transform hover:scale-105 mt-4 inline-block">Download
-                    Resume</a>
+                <a href="resume.doc" download="John_Doe_Resume.doc" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-transform transform hover:scale-105 mt-4 inline-block">Download Resume</a>
             </div>
         </section>
     </main>
