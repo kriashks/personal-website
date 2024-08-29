@@ -1,14 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const navLinks = document.querySelectorAll('.nav-link');
+    const navLinks = document.querySelectorAll('nav a');
+
     navLinks.forEach(link => {
-        link.addEventListener('click', (event) => {
+        link.addEventListener('click', event => {
             event.preventDefault();
-            const sectionId = event.target.getAttribute('data-section');
+            const sectionId = link.getAttribute('data-section');
             showSection(sectionId);
         });
     });
 
-    // Show the "About" section by default
+    // Show the "About" section by default when the page loads
     showSection('about');
 });
 
@@ -20,8 +21,8 @@ function showSection(sectionId) {
     });
 
     // Show the selected section
-    const selectedSection = document.getElementById(sectionId);
-    if (selectedSection) {
-        selectedSection.classList.remove('hidden');
+    const sectionToShow = document.getElementById(sectionId);
+    if (sectionToShow) {
+        sectionToShow.classList.remove('hidden');
     }
 }
