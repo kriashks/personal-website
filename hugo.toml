@@ -1,4 +1,4 @@
-baseURL = "https://adarshkrishnan.com/"
+baseURL: 'https://kriashks.github.io/personal-website/'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
 theme = "hugo-PaperMod"
