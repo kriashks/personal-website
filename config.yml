@@ -2,7 +2,7 @@ baseURL: https://example.com/
 languageCode: en-us
 title: Data Science Portfolio
 paginate: 5
-theme: hugo-PaperMod
+theme: PaperMod
 
 params:
   env: production
