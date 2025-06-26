@@ -1,0 +1,30 @@
+baseURL: https://adarshkrishnan.com/
+languageCode: en-us
+title: Data Science Portfolio
+pagination:
+  pagerSize: 5
+theme: PaperMod
+
+params:
+  env: production
+  title: Data Science Portfolio
+  description: Personal website and blog of a data scientist.
+  defaultTheme: auto
+  showPostNavLinks: true
+  ShowReadingTime: true
+  ShowShareButtons: true
+
+menu:
+  main:
+    - identifier: blog
+      name: Blog
+      url: /blog/
+      weight: 1
+    - identifier: projects
+      name: Projects
+      url: /projects/
+      weight: 2
+    - identifier: about
+      name: About
+      url: /about/
+      weight: 3
