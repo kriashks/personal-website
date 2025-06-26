@@ -35,8 +35,9 @@ jobs:
         run: |
           CGO_ENABLED=1 \
           go install -tags extended,withdeploy \
-            github.com/gohugoio/hugo@${{ inputs.hugo }}
+            github.com/gohugoio/hugo@latest
           echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
+
 
       - name: Build site
         run: hugo --minify
