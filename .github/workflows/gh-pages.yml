@@ -44,7 +44,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: site
-          path: .
+          path: public
 
 # ------------------------------------------------------
 # 2a. Default route – publish to GitHub Pages
