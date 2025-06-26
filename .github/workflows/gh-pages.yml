@@ -31,13 +31,10 @@ jobs:
         with:
           go-version: "1.22"
 
-      - name: Install Hugo (extended + deploy)
-        run: |
-          CGO_ENABLED=1 \
-          go install -tags extended,withdeploy \
-            github.com/gohugoio/hugo@latest
-          echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
-
+      - uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.128.0'
+          # extended: true      # only if you need SCSS / WebP support
 
       - name: Build site
         run: hugo --minify
