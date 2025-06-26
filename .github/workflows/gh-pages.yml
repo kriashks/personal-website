@@ -1,22 +1,66 @@
-name: Deploy Hugo site
-
+name: Build & deploy Hugo site
 on:
   push:
-    branches: ["main"]
+    branches: [main]
   workflow_dispatch:
+    inputs:
+      target:
+        description: "Where to deploy (pages | s3)"
+        default: "pages"
+        required: false
+      hugo:
+        description: "Hugo version tag, e.g. v0.147.9"
+        default: "v0.147.9"
+        required: false
 
 jobs:
+# ------------------------------------------------------
+# 1. Build once – outputs ./public as an artefact
+# ------------------------------------------------------
   build:
     runs-on: ubuntu-latest
+    outputs:
+      publish-dir: ${{ steps.upload.outputs.artifact-path }}
     steps:
       - uses: actions/checkout@v4
         with:
           submodules: true
-      - uses: peaceiris/actions-hugo@v2
+          fetch-depth: 0          # needed for .GitInfo etc.
+
+      - uses: actions/setup-go@v5
         with:
-          hugo-version: '0.128.0'
-          extended: true
-      - run: hugo --minify
+          go-version: "1.22"
+
+      - name: Install Hugo (extended + deploy)
+        run: |
+          CGO_ENABLED=1 \
+          go install -tags extended,withdeploy \
+            github.com/gohugoio/hugo@${{ inputs.hugo }}
+          echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
+
+      - name: Build site
+        run: hugo --minify
+
+      - name: Upload artefact
+        id: upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: public
+
+# ------------------------------------------------------
+# 2a. Default route – publish to GitHub Pages
+# ------------------------------------------------------
+  deploy-pages:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' &&
+        (github.event.inputs.target == '' || github.event.inputs.target == 'pages')
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: public
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
