@@ -1,0 +1,104 @@
+/* --- "Deep Dive" Theme by [Your Name] --- */
+
+/* 1. FONT IMPORT */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Poppins:wght@600;700&display=swap');
+
+/* 2. FONT & COLOR DEFINITIONS (VARIABLES) */
+:root {
+    --primary: #00bfa5;
+    /* Our "Digital Teal" accent */
+    --primary-light: #5df2d6;
+    --primary-dark: #008e76;
+
+    /* Light Mode */
+    --light-bg: #f5f5f5;
+    /* Warm off-white */
+    --light-fg: #2c3e50;
+    /* Dark slate for text */
+    --light-code-bg: #e6e6e6;
+    --light-border: #dcdcdc;
+
+    /* Dark Mode */
+    --dark-bg: #1c2533;
+    /* Deep navy blue */
+    --dark-fg: #ecf0f1;
+    /* Soft white for text */
+    --dark-code-bg: #2a3447;
+    --dark-border: #3a475a;
+
+    /* Define fonts */
+    --font-family-body: 'Lora', serif;
+    --font-family-heading: 'Poppins', sans-serif;
+}
+
+/* 3. APPLY FONTS */
+body {
+    font-family: var(--font-family-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-family-heading);
+}
+
+/* 4. APPLY THEME COLORS */
+body.dark {
+    --bg: var(--dark-bg);
+    --fg: var(--dark-fg);
+    --code-bg: var(--dark-code-bg);
+    --border: var(--dark-border);
+}
+
+body.light {
+    --bg: var(--light-bg);
+    --fg: var(--light-fg);
+    --code-bg: var(--light-code-bg);
+    --border: var(--light-border);
+}
+
+/* 5. ADD POLISH (THE "FUN" PART) */
+
+/* Soften edges of elements */
+.post-entry,
+.post-content pre,
+.social-icons a,
+.form-input,
+#search-input,
+.button {
+    border-radius: 8px;
+    /* Rounded corners */
+}
+
+/* Add a subtle shadow to make posts pop */
+.post-entry {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.post-entry:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+body.dark .post-entry {
+    background: var(--dark-code-bg);
+    /* Make cards a slightly different shade */
+    box-shadow: none;
+}
+
+/* Fun link animation */
+a {
+    transition: color 0.2s ease;
+}
+
+/* Style the blockquotes like on your resume page */
+.post-content blockquote {
+    border-left: 3px solid var(--primary);
+    background-color: var(--code-bg);
+    padding: 15px;
+    border-radius: 0 8px 8px 0;
+}
