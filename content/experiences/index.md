@@ -3,6 +3,8 @@ title: "Résumé | Adarsh Krishnan"
 date: 2024-05-21
 slug: experiences
 showToc: false
+showReadingTime: false # Add this line
+showDate: false        # Add this line
 ---
 
 <!-- Header with Contact Information -->
