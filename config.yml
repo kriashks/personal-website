@@ -28,3 +28,7 @@ menu:
       name: About
       url: /about/
       weight: 3
+    - identifier: experiences
+      name: Experiences
+      url: /experiences/
+      weight: 4

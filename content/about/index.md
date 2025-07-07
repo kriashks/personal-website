@@ -4,4 +4,4 @@ date: 2024-01-01
 slug: about
 ---
 
-I am a data scientist passionate about sharing knowledge through open-source projects and technical writing. This site hosts my blog posts and project portfolio.
+Hi there! I'm a data scientist who loves to explore the world of data and share my findings with others. This website is my personal space to showcase my projects, write about my data science journey, and connect with like-minded people. I hope you find something interesting here!
