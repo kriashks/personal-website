@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(hugo:*)",
+      "Bash(rmdir:*)",
+      "Bash(rd:*)",
+      "Bash(rm:*)",
+      "Bash(git submodule:*)",
+      "Bash(ls:*)",
+      "Bash(git clone:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": []
+  }
+}
