@@ -1,0 +1,72 @@
+baseURL = "https://adarshkrishnan.com/"
+title = "Adarsh Krishnan"
+theme = "blowfish"
+defaultContentLanguage = "en"
+
+# Allow raw HTML in markdown
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[menu]
+  [[menu.main]]
+    identifier = "blog"
+    name = "Blog"
+    url = "/blog/"
+    weight = 10
+  [[menu.main]]
+    identifier = "projects"
+    name = "Projects"
+    url = "/projects/"
+    weight = 20
+  [[menu.main]]
+    identifier = "resume"
+    name = "Resume"
+    url = "/resume/"
+    weight = 30
+
+[params]
+  description = "Data Scientist with a passion for turning data into actionable insights. Explore my projects and articles."
+  colorScheme = "blowfish"
+  defaultAppearance = "light"
+  autoSwitchAppearance = true
+  
+  [params.homepage]
+    layout = "profile"
+    showRecent = true
+    showRecentItems = 6
+    showMoreLink = true
+    showMoreLinkDest = "/blog"
+
+  [params.header]
+    layout = "basic"
+
+  [params.footer]
+    showMenu = true
+    showCopyright = true
+    showThemeAttribution = true
+    showAppearanceSwitcher = true
+    showScrollToTop = true
+
+  [params.article]
+    showDate = true
+    showAuthor = true
+    showHero = true
+    showBreadcrumbs = true
+    showReadingTime = true
+    showTableOfContents = true
+    showRelatedContent = true
+    relatedContentLimit = 3
+    showTaxonomies = true
+    showSummary = true
+
+  [params.author]
+    name = "Adarsh Krishnan"
+    headline = "Data Scientist"
+    bio = "Data Scientist with a passion for turning data into actionable insights"
+    links = [
+      { github = "https://github.com/kriashks" },
+      { linkedin = "https://www.linkedin.com/in/kriash/" },
+      { email = "mailto:kriashks@gmail.com" }
+    ]

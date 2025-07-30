@@ -1,7 +1,7 @@
 ---
 title: "Résumé | Adarsh Krishnan"
 date: 2024-05-21
-slug: experiences
+slug: resume
 showToc: false
 showReadingTime: false # Add this line
 showDate: false        # Add this line

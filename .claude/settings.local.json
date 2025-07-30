@@ -11,7 +11,10 @@
       "Bash(git add:*)",
       "Bash(git config:*)",
       "Bash(git rm:*)",
-      "Bash(del nul)"
+      "Bash(del nul)",
+      "Bash(mkdir:*)",
+      "Bash(mv:*)",
+      "Bash(taskkill:*)"
     ],
     "deny": []
   }

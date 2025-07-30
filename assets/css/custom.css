@@ -1,0 +1,226 @@
+/* Apple-inspired Custom Styles for Blowfish Theme */
+
+/* Import clean, modern fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Global font and spacing adjustments */
+:root {
+  --font-family-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-family-heading: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  /* Apple-inspired spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  
+  /* Subtle animations */
+  --transition-base: all 0.2s ease-in-out;
+  --transition-slow: all 0.3s ease-in-out;
+}
+
+/* Override theme fonts */
+body {
+  font-family: var(--font-family-body) !important;
+  font-weight: 400;
+  letter-spacing: -0.011em;
+  font-feature-settings: "ss01";
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading) !important;
+  font-weight: 600;
+  letter-spacing: -0.022em;
+}
+
+/* Hero section enhancements */
+.hero-section {
+  padding: var(--spacing-xl) 0;
+}
+
+/* Card hover effects with subtle shadow */
+article, .card {
+  transition: var(--transition-base);
+  border-radius: 12px;
+}
+
+article:hover, .card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.08), 
+              0 0 0 1px rgba(0, 0, 0, 0.02);
+}
+
+/* Clean link styling */
+a {
+  transition: var(--transition-base);
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+/* Navigation enhancements */
+nav {
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+
+/* Button styling */
+.btn, button, [role="button"] {
+  font-weight: 500;
+  border-radius: 8px;
+  transition: var(--transition-base);
+  padding: var(--spacing-xs) var(--spacing-md);
+}
+
+.btn:hover, button:hover, [role="button"]:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Profile image styling */
+.profile img, .avatar {
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Content spacing */
+.prose {
+  max-width: 680px;
+  line-height: 1.6;
+}
+
+.prose h1 { margin-top: var(--spacing-xl); }
+.prose h2 { margin-top: var(--spacing-lg); }
+.prose h3 { margin-top: var(--spacing-md); }
+.prose p { margin-bottom: var(--spacing-md); }
+
+/* Code blocks with subtle styling */
+pre, code {
+  border-radius: 6px;
+  font-size: 0.9em;
+}
+
+pre {
+  padding: var(--spacing-md);
+  overflow-x: auto;
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.dark pre {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* Tag and category pills */
+.tag, .category, [class*="badge"] {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 100px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: var(--transition-base);
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.dark .tag, .dark .category, .dark [class*="badge"] {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.tag:hover, .category:hover, [class*="badge"]:hover {
+  transform: scale(1.05);
+}
+
+/* Resume page specific styling */
+.resume-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.resume-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.resume-content h2 {
+  font-size: 1.5rem;
+  margin-top: var(--spacing-lg);
+  padding-bottom: var(--spacing-xs);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.dark .resume-content h2 {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Project cards */
+.project-card {
+  padding: var(--spacing-md);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.02);
+  transition: var(--transition-base);
+}
+
+.dark .project-card {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.project-card:hover {
+  background: rgba(0, 0, 0, 0.04);
+  transform: translateY(-2px);
+}
+
+.dark .project-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Social icons */
+.social-icons a {
+  transition: var(--transition-base);
+  opacity: 0.8;
+}
+
+.social-icons a:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  :root {
+    --spacing-xl: 2rem;
+    --spacing-lg: 1.5rem;
+  }
+  
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background-color: rgba(0, 122, 255, 0.2);
+  color: inherit;
+}
+
+/* Focus states for accessibility */
+a:focus, button:focus, [role="button"]:focus {
+  outline: 2px solid rgba(0, 122, 255, 0.5);
+  outline-offset: 2px;
+}
+
+/* Loading animation */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.loading {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
