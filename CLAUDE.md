@@ -6,6 +6,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a personal website built with Hugo static site generator and the PaperMod theme. The site is deployed to GitHub Pages and available at adarshkrishnan.com.
 
+### Development Environment
+- This project will be worked on a windows 11 machine.
+
 ## Key Commands
 
 ### Development
