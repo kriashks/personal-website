@@ -8,7 +8,9 @@
       "Bash(git submodule:*)",
       "Bash(ls:*)",
       "Bash(git clone:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git config:*)",
+      "Bash(git rm:*)"
     ],
     "deny": []
   }
