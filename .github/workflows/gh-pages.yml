@@ -33,8 +33,8 @@ jobs:
 
       - uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.128.0'
-          # extended: true      # only if you need SCSS / WebP support
+          hugo-version: '0.146.0'
+          extended: true      # PaperMod theme requires extended version
 
       - name: Build site
         run: hugo --minify
