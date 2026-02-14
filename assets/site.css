@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Sora:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap");
 
 :root {
   --bg-a: #f3ece2;
@@ -92,9 +92,8 @@ main {
 }
 
 .brand strong {
-  font-family: "Cormorant Garamond", "Baskerville", "Times New Roman", serif;
   font-weight: 700;
-  letter-spacing: 0.02em;
+  letter-spacing: 0;
 }
 
 .nav-links {
@@ -154,17 +153,11 @@ main {
   text-transform: uppercase;
 }
 
-h1,
-h2,
-h3,
-.brand {
-  font-family: "Cormorant Garamond", "Baskerville", "Times New Roman", serif;
-  letter-spacing: 0.01em;
-}
-
 .hero h1 {
   margin: 0 0 0.66rem;
   font-size: clamp(2.2rem, 5vw, 3.25rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
   line-height: 0.96;
 }
 
@@ -217,6 +210,8 @@ h3,
 .section h2 {
   margin: 0 0 0.7rem;
   font-size: clamp(1.72rem, 3.4vw, 2.35rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
   line-height: 1.04;
 }
 
@@ -240,6 +235,8 @@ h3,
 .card h3 {
   margin: 0 0 0.58rem;
   font-size: clamp(1.42rem, 2.8vw, 1.86rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
   line-height: 1.08;
 }
 
