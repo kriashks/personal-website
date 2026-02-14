@@ -1,16 +1,12 @@
-name: Build & deploy Hugo site
+name: Build & deploy website
 on:
   push:
     branches: [main]
   workflow_dispatch:
     inputs:
-      target:
-        description: "Where to deploy (pages | s3)"
-        default: "pages"
-        required: false
-      hugo:
-        description: "Hugo version tag, e.g. v0.147.9"
-        default: "v0.147.9"
+      output_dir:
+        description: "Build output directory (dist | build | out | public)"
+        default: "public"
         required: false
 
 jobs:
@@ -25,19 +21,64 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: true
-          fetch-depth: 0          # needed for .GitInfo etc.
+          fetch-depth: 0
 
-      - uses: actions/setup-go@v5
+      - uses: actions/setup-node@v4
         with:
-          go-version: "1.22"
-
-      - uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: '0.146.0'
-          extended: true      # PaperMod theme requires extended version
+          node-version: "20"
 
       - name: Build site
-        run: hugo --minify
+        env:
+          OUTPUT_DIR: ${{ github.event.inputs.output_dir || 'public' }}
+        run: |
+          set -euo pipefail
+
+          if [ -f package.json ]; then
+            if [ -f package-lock.json ]; then
+              npm ci
+            else
+              npm install
+            fi
+            npm run build
+          fi
+
+          if [ "${OUTPUT_DIR}" != "public" ]; then
+            if [ ! -d "${OUTPUT_DIR}" ]; then
+              echo "Configured output_dir '${OUTPUT_DIR}' does not exist."
+              exit 1
+            fi
+            rm -rf public
+            mkdir -p public
+            rsync -a "${OUTPUT_DIR}/" public/
+          fi
+
+          if [ "${OUTPUT_DIR}" = "public" ] && [ ! -f public/index.html ]; then
+            for candidate in dist build out; do
+              if [ -f "${candidate}/index.html" ]; then
+                rm -rf public
+                mkdir -p public
+                rsync -a "${candidate}/" public/
+                break
+              fi
+            done
+          fi
+
+          if [ "${OUTPUT_DIR}" = "public" ] && [ ! -f public/index.html ] && [ -f index.html ]; then
+            mkdir -p public
+            rsync -a \
+              --exclude ".git/" \
+              --exclude ".github/" \
+              --exclude "node_modules/" \
+              --exclude "public/" \
+              ./ public/
+          fi
+
+          if [ ! -f public/index.html ]; then
+            echo "Missing public/index.html after build. Set workflow_dispatch input output_dir correctly."
+            exit 1
+          fi
+
+          echo "adarshkrishnan.com" > public/CNAME
 
       - name: Upload artefact
         id: upload
@@ -50,8 +91,7 @@ jobs:
 # 2a. Default route – publish to GitHub Pages
 # ------------------------------------------------------
   deploy-pages:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main' &&
-        (github.event.inputs.target == '' || github.event.inputs.target == 'pages')
+    if: github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
     steps:
