@@ -1,0 +1,224 @@
+@import 'tailwindcss';
+@import '@skeletonlabs/skeleton';
+@import '@skeletonlabs/skeleton/themes/terminus';
+@import '@skeletonlabs/skeleton-svelte';
+
+@source '../node_modules/@skeletonlabs/skeleton-svelte/dist';
+
+:root {
+	--shell-width: min(1140px, 94vw);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	min-height: 100vh;
+	color: var(--base-font-color);
+	background:
+		radial-gradient(circle at 20% 8%, color-mix(in oklab, var(--color-secondary-200) 42%, transparent) 0, transparent 34%),
+		radial-gradient(circle at 88% 20%, color-mix(in oklab, var(--color-primary-200) 40%, transparent) 0, transparent 30%),
+		linear-gradient(145deg, var(--color-surface-50) 0%, color-mix(in oklab, var(--color-surface-100) 80%, var(--color-secondary-50) 20%) 50%, var(--color-surface-100) 100%);
+	background-attachment: fixed;
+	line-height: 1.65;
+}
+
+body::before {
+	content: '';
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+	background-image:
+		linear-gradient(to right, color-mix(in oklab, var(--color-surface-400) 16%, transparent) 1px, transparent 1px),
+		linear-gradient(to bottom, color-mix(in oklab, var(--color-surface-400) 14%, transparent) 1px, transparent 1px);
+	background-size: 26px 26px;
+	opacity: 0.28;
+	z-index: -1;
+	mask-image: radial-gradient(circle at center, black 34%, transparent 92%);
+}
+
+a {
+	text-decoration-thickness: 0.09em;
+	text-underline-offset: 0.16em;
+}
+
+.site-shell {
+	width: var(--shell-width);
+	margin-inline: auto;
+	padding: 1.2rem 0 2.8rem;
+}
+
+.shell-nav {
+	position: sticky;
+	top: 0.9rem;
+	z-index: 30;
+	border: 1px solid color-mix(in oklab, var(--color-surface-700) 18%, transparent);
+	backdrop-filter: blur(10px);
+	background: color-mix(in oklab, var(--color-surface-50) 88%, transparent);
+}
+
+.brand-title {
+	font-family: var(--heading-font-family);
+	letter-spacing: -0.03em;
+}
+
+.nav-link {
+	border: 1px solid transparent;
+	border-radius: 999px;
+	padding: 0.35rem 0.82rem;
+	font-size: 0.92rem;
+	font-weight: 600;
+	line-height: 1;
+	transition: all 180ms ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+	border-color: color-mix(in oklab, var(--color-primary-500) 28%, transparent);
+	background: color-mix(in oklab, var(--color-primary-50) 60%, transparent);
+	color: var(--color-primary-900);
+	text-decoration: none;
+}
+
+.panel {
+	border-radius: 1rem;
+	border: 1px solid color-mix(in oklab, var(--color-surface-700) 18%, transparent);
+	background: color-mix(in oklab, var(--color-surface-50) 88%, transparent);
+	box-shadow: 0 18px 36px color-mix(in oklab, var(--color-surface-900) 9%, transparent);
+}
+
+.hero-panel {
+	position: relative;
+	overflow: hidden;
+}
+
+.hero-panel::after {
+	content: '';
+	position: absolute;
+	top: -3rem;
+	right: -3rem;
+	width: 10rem;
+	height: 10rem;
+	border-radius: 999px;
+	background: radial-gradient(circle, color-mix(in oklab, var(--color-primary-300) 42%, transparent) 0, transparent 72%);
+}
+
+.section-title {
+	font-size: clamp(1.55rem, 3.8vw, 2.25rem);
+	line-height: 1.06;
+	letter-spacing: -0.025em;
+}
+
+.kicker {
+	text-transform: uppercase;
+	font-size: 0.73rem;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	color: var(--color-surface-700);
+	margin-bottom: 0.45rem;
+}
+
+.chip {
+	display: inline-flex;
+	align-items: center;
+	border-radius: 999px;
+	padding: 0.18rem 0.64rem;
+	font-size: 0.76rem;
+	font-weight: 600;
+	line-height: 1.2;
+	border: 1px solid color-mix(in oklab, var(--color-secondary-700) 22%, transparent);
+	background: color-mix(in oklab, var(--color-secondary-100) 65%, transparent);
+	color: var(--color-secondary-900);
+}
+
+.fade-slide {
+	opacity: 0;
+	animation: fade-slide-up 620ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.fade-slide.delay-1 {
+	animation-delay: 70ms;
+}
+
+.fade-slide.delay-2 {
+	animation-delay: 130ms;
+}
+
+.fade-slide.delay-3 {
+	animation-delay: 190ms;
+}
+
+.blog-article :global(h2) {
+	margin-top: 1.5rem;
+	margin-bottom: 0.55rem;
+	font-size: clamp(1.38rem, 3vw, 1.82rem);
+	line-height: 1.15;
+	letter-spacing: -0.02em;
+}
+
+.blog-article :global(h3) {
+	margin-top: 1.15rem;
+	margin-bottom: 0.45rem;
+	font-size: clamp(1.16rem, 2.5vw, 1.42rem);
+}
+
+.blog-article :global(ul),
+.blog-article :global(ol) {
+	padding-left: 1.25rem;
+	margin: 0.55rem 0;
+}
+
+.blog-article :global(li) {
+	margin: 0.15rem 0;
+}
+
+.blog-article :global(p) {
+	margin: 0.65rem 0;
+}
+
+@keyframes fade-slide-up {
+	from {
+		opacity: 0;
+		transform: translateY(12px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation: none !important;
+		transition: none !important;
+	}
+
+	html {
+		scroll-behavior: auto;
+	}
+}
+
+@media (max-width: 760px) {
+	.site-shell {
+		width: min(96vw, 42rem);
+		padding-top: 0.85rem;
+	}
+
+	.shell-nav {
+		top: 0.45rem;
+	}
+}

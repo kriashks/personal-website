@@ -4,36 +4,52 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a static multi-page personal website for Adarsh Krishnan, styled with [oat](https://oat.ink/) and deployed to GitHub Pages at `https://adarshkrishnan.com/`.
+This is Adarsh Krishnan's personal website, rewritten with **SvelteKit** and **Skeleton UI** using the **Terminus** theme.
+It is deployed to GitHub Pages at `https://adarshkrishnan.com/`.
 
 ## Development Environment
 
-- Primary machine: Windows 11
-- Site source is plain HTML/CSS/JS at repo root (`index.html`, `about/`, `projects/`, `blog/`, etc.)
+- Package manager: `npm`
+- Framework: `SvelteKit` (TypeScript)
+- UI: `@skeletonlabs/skeleton` + `@skeletonlabs/skeleton-svelte`
+- Blog source: markdown in `content/blog/*.md`
 
 ## Key Commands
 
-### Local preview
+### Install dependencies
 ```bash
-python3 -m http.server 8000
+npm install
 ```
 
-### GitHub Pages deploy
-Deployment is automated on push to `main` via:
-- `.github/workflows/gh-pages.yml`
+### Local development
+```bash
+npm run dev -- --open
+```
 
-The workflow copies static files into `public/` and enforces `CNAME=adarshkrishnan.com`.
+### Typecheck
+```bash
+npm run check
+```
+
+### Production build
+```bash
+npm run build
+npm run preview
+```
+
+### Scaffold a new blog post
+```bash
+npm run blog:new -- --title "Your Post Title"
+```
 
 ## Project Structure
 
-- `index.html` - Homepage
-- `about/index.html` - About page
-- `projects/index.html` - Projects page
-- `blog/index.html` - Blog listing
-- `blog/*/index.html` - Post pages
-- `experiences/index.html` - Resume page
-- `assets/site.css` - Site styling
-- `assets/site.js` - Small client-side enhancements
-- `404.html` - Not found page
-- `sitemap.xml` - Sitemap
-- `CNAME` - Custom domain
+- `src/routes/` - Site routes (`/`, `/about`, `/projects`, `/blog`, `/experiences`)
+- `src/lib/server/blog.ts` - markdown loader + parser for blog posts
+- `src/app.css` - global styles, Tailwind, and Skeleton theme imports
+- `templates/blog-post.md` - template used to scaffold new posts
+- `scripts/new-blog.mjs` - blog scaffold CLI
+- `static/favicon.svg` - favicon
+- `content/blog/` - blog markdown files
+- `.github/workflows/gh-pages.yml` - deployment workflow
+- `CNAME` - custom domain mapping
