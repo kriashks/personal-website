@@ -1,43 +1,32 @@
 <!doctype html>
-<html lang="en" data-theme="terminus">
+<html lang="en" data-theme="nouveau">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<script>
-			(() => {
-				const storedMode = localStorage.getItem('color-mode');
-				const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-				const mode = storedMode === 'light' || storedMode === 'dark' ? storedMode : 'system';
-				const resolvedMode = mode === 'system' ? (prefersDark ? 'dark' : 'light') : mode;
-				document.documentElement.dataset.colorMode = mode;
-				document.documentElement.dataset.resolvedMode = resolvedMode;
-				document.documentElement.style.colorScheme = resolvedMode;
-			})();
-		</script>
-		<link href="/_app/immutable/entry/start.DairozDF.js" rel="modulepreload">
-		<link href="/_app/immutable/chunks/CqftTUZ6.js" rel="modulepreload">
-		<link href="/_app/immutable/chunks/CYFDS2Tc.js" rel="modulepreload">
-		<link href="/_app/immutable/chunks/XnUupt1-.js" rel="modulepreload">
-		<link href="/_app/immutable/entry/app.D4n7Q6Wj.js" rel="modulepreload">
-		<link href="/_app/immutable/chunks/D86mUjsH.js" rel="modulepreload">
-		<link href="/_app/immutable/chunks/1XHU1HoN.js" rel="modulepreload">
-		<link href="/_app/immutable/chunks/BvSJW5Fp.js" rel="modulepreload">
-		<link href="/_app/immutable/chunks/DHsso-Lo.js" rel="modulepreload">
+		<link href="/_app/immutable/entry/start.CuCr07H_.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/B-jIRYn5.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/CbmAQnVO.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/DIVUsutM.js" rel="modulepreload">
+		<link href="/_app/immutable/entry/app.B1XOq97N.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/8lp6YizR.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/DW9d5Fap.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/IIzdXsFP.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/Ddy_1pnb.js" rel="modulepreload">
 		
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div>
 			<script>
 				{
-					__sveltekit_iob9pw = {
+					__sveltekit_webkev = {
 						base: ""
 					};
 
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-						import("/_app/immutable/entry/start.DairozDF.js"),
-						import("/_app/immutable/entry/app.D4n7Q6Wj.js")
+						import("/_app/immutable/entry/start.CuCr07H_.js"),
+						import("/_app/immutable/entry/app.B1XOq97N.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element);
 					});
