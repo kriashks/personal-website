@@ -3,30 +3,41 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link href="/_app/immutable/entry/start.DYEztNSM.js" rel="modulepreload">
-		<link href="/_app/immutable/chunks/5HE5nyyH.js" rel="modulepreload">
-		<link href="/_app/immutable/chunks/-anAQ7lQ.js" rel="modulepreload">
-		<link href="/_app/immutable/chunks/B7oJkfU9.js" rel="modulepreload">
-		<link href="/_app/immutable/entry/app.Cz2oGNNS.js" rel="modulepreload">
-		<link href="/_app/immutable/chunks/DdDbbG1_.js" rel="modulepreload">
-		<link href="/_app/immutable/chunks/DA9xWTIu.js" rel="modulepreload">
-		<link href="/_app/immutable/chunks/BCM_tYs7.js" rel="modulepreload">
-		<link href="/_app/immutable/chunks/C9a6uZhj.js" rel="modulepreload">
+		<script>
+			(() => {
+				const storedMode = localStorage.getItem('color-mode');
+				const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+				const mode = storedMode === 'light' || storedMode === 'dark' ? storedMode : 'system';
+				const resolvedMode = mode === 'system' ? (prefersDark ? 'dark' : 'light') : mode;
+				document.documentElement.dataset.colorMode = mode;
+				document.documentElement.dataset.resolvedMode = resolvedMode;
+				document.documentElement.style.colorScheme = resolvedMode;
+			})();
+		</script>
+		<link href="/_app/immutable/entry/start.DairozDF.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/CqftTUZ6.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/CYFDS2Tc.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/XnUupt1-.js" rel="modulepreload">
+		<link href="/_app/immutable/entry/app.D4n7Q6Wj.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/D86mUjsH.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/1XHU1HoN.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/BvSJW5Fp.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/DHsso-Lo.js" rel="modulepreload">
 		
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div>
 			<script>
 				{
-					__sveltekit_144vx3k = {
+					__sveltekit_iob9pw = {
 						base: ""
 					};
 
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-						import("/_app/immutable/entry/start.DYEztNSM.js"),
-						import("/_app/immutable/entry/app.Cz2oGNNS.js")
+						import("/_app/immutable/entry/start.DairozDF.js"),
+						import("/_app/immutable/entry/app.D4n7Q6Wj.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element);
 					});

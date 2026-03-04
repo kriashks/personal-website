@@ -3,27 +3,39 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link href="../../_app/immutable/entry/start.DYEztNSM.js" rel="modulepreload">
-		<link href="../../_app/immutable/chunks/5HE5nyyH.js" rel="modulepreload">
-		<link href="../../_app/immutable/chunks/-anAQ7lQ.js" rel="modulepreload">
-		<link href="../../_app/immutable/chunks/B7oJkfU9.js" rel="modulepreload">
-		<link href="../../_app/immutable/entry/app.Cz2oGNNS.js" rel="modulepreload">
-		<link href="../../_app/immutable/chunks/DdDbbG1_.js" rel="modulepreload">
-		<link href="../../_app/immutable/chunks/DA9xWTIu.js" rel="modulepreload">
-		<link href="../../_app/immutable/chunks/BCM_tYs7.js" rel="modulepreload">
-		<link href="../../_app/immutable/chunks/C9a6uZhj.js" rel="modulepreload">
-		<link href="../../_app/immutable/nodes/0.BbDksi-d.js" rel="modulepreload">
-		<link href="../../_app/immutable/chunks/BcyNOOTR.js" rel="modulepreload">
-		<link href="../../_app/immutable/chunks/4Ynjw86U.js" rel="modulepreload">
-		<link href="../../_app/immutable/chunks/Cm0cDYUl.js" rel="modulepreload">
-		<link href="../../_app/immutable/chunks/DaLSIgSB.js" rel="modulepreload">
-		<link href="../../_app/immutable/nodes/5.KHqsJUbb.js" rel="modulepreload">
+		<script>
+			(() => {
+				const storedMode = localStorage.getItem('color-mode');
+				const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+				const mode = storedMode === 'light' || storedMode === 'dark' ? storedMode : 'system';
+				const resolvedMode = mode === 'system' ? (prefersDark ? 'dark' : 'light') : mode;
+				document.documentElement.dataset.colorMode = mode;
+				document.documentElement.dataset.resolvedMode = resolvedMode;
+				document.documentElement.style.colorScheme = resolvedMode;
+			})();
+		</script>
+		<link href="../../_app/immutable/entry/start.DairozDF.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/CqftTUZ6.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/CYFDS2Tc.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/XnUupt1-.js" rel="modulepreload">
+		<link href="../../_app/immutable/entry/app.D4n7Q6Wj.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/D86mUjsH.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/1XHU1HoN.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/BvSJW5Fp.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/DHsso-Lo.js" rel="modulepreload">
+		<link href="../../_app/immutable/nodes/0.RoMq1qsb.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/CHGdIhtI.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/Db4OeKKV.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/DTUWc4W0.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/f5eX9HCT.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/Bs9Wd5OI.js" rel="modulepreload">
+		<link href="../../_app/immutable/nodes/5.DZZyPR0L.js" rel="modulepreload">
 		<link href="../../_app/immutable/chunks/B8hh0SSk.js" rel="modulepreload">
 		<!--12qhfyh--><meta name="description" content="Personal website of Adarsh Krishnan, focused on decision science, analytics, and data automation."/> <link rel="icon" href="/favicon.svg"/><!----><!--1teoznn--><meta name="description" content="A short introduction to where biology and computing intersect."/> <link rel="canonical" href="https://adarshkrishnan.com/blog/what-is-bioinformatics/"/><!----><title>What Is Bioinformatics | Adarsh Krishnan</title>
-		<link href="../../_app/immutable/assets/0.CewN1bre.css" rel="stylesheet">
+		<link href="../../_app/immutable/assets/0.CeBeXEQn.css" rel="stylesheet">
 	</head>
 	<body data-sveltekit-preload-data="hover">
-		<div><!--[--><!--[--><!--[--><div class="site-shell"><header class="shell-nav panel card p-3 md:p-4 fade-slide"><div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between"><div><p class="text-xs uppercase tracking-[0.28em] text-surface-700">Data Scientist</p> <p class="brand-title text-xl font-black tracking-tight text-surface-950">Adarsh Krishnan</p></div> <nav class="flex flex-wrap gap-1.5" aria-label="Primary"><!--[--><a href="/" class="nav-link">Home</a><a href="/about/" class="nav-link">About</a><a href="/projects/" class="nav-link">Projects</a><a href="/blog/" class="nav-link active">Blog</a><a href="/experiences/" class="nav-link">Resume</a><!--]--></nav></div></header> <main class="mt-5 flex flex-col gap-5"><!--[--><article class="panel p-5 md:p-7 fade-slide delay-1 blog-article"><p class="kicker">Blog</p> <h1 class="section-title mb-2">What Is Bioinformatics</h1> <p class="text-sm text-surface-700">February 12, 2024</p> <div class="mt-4 text-surface-900"><!----><p>Bioinformatics combines biology and computing to analyze biological data such as sequences, expression data, and protein structures.</p>
+		<div><!--[--><!--[--><!--[--><div class="site-shell"><header class="shell-nav panel card p-3 md:p-4 fade-slide"><div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between"><div><!--[!--><!--]--> <p class="brand-title text-xl font-black tracking-tight text-surface-950">Adarsh Krishnan</p></div> <div class="flex flex-wrap items-center gap-2.5"><nav class="flex flex-wrap gap-1.5" aria-label="Primary"><!--[--><a href="/" class="nav-link">Home</a><a href="/about/" class="nav-link">About</a><a href="/blog/" class="nav-link active">Blog</a><a href="/experiences/" class="nav-link">Resume</a><!--]--></nav> <button type="button" class="theme-toggle" aria-label="Switch to dark mode">Theme: System (light)</button></div></div></header> <main class="mt-5 flex flex-col gap-5"><!--[--><article class="panel p-5 md:p-7 fade-slide delay-1 blog-article"><p class="kicker">Blog</p> <h1 class="section-title mb-2">What Is Bioinformatics</h1> <p class="text-sm text-surface-700">February 12, 2024</p> <div class="mt-4 text-surface-900"><!----><p>Bioinformatics combines biology and computing to analyze biological data such as sequences, expression data, and protein structures.</p>
 <h2>Why it matters</h2>
 <ul>
 <li>Accelerates drug discovery and biomarker research.</li>
@@ -40,15 +52,15 @@
 			
 			<script>
 				{
-					__sveltekit_144vx3k = {
+					__sveltekit_iob9pw = {
 						base: new URL("../..", location).pathname.slice(0, -1)
 					};
 
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-						import("../../_app/immutable/entry/start.DYEztNSM.js"),
-						import("../../_app/immutable/entry/app.Cz2oGNNS.js")
+						import("../../_app/immutable/entry/start.DairozDF.js"),
+						import("../../_app/immutable/entry/app.D4n7Q6Wj.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 5],
