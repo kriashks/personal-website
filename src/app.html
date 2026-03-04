@@ -1,19 +1,8 @@
 <!doctype html>
-<html lang="en" data-theme="terminus">
+<html lang="en" data-theme="nouveau">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<script>
-			(() => {
-				const storedMode = localStorage.getItem('color-mode');
-				const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-				const mode = storedMode === 'light' || storedMode === 'dark' ? storedMode : 'system';
-				const resolvedMode = mode === 'system' ? (prefersDark ? 'dark' : 'light') : mode;
-				document.documentElement.dataset.colorMode = mode;
-				document.documentElement.dataset.resolvedMode = resolvedMode;
-				document.documentElement.style.colorScheme = resolvedMode;
-			})();
-		</script>
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">

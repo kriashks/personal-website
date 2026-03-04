@@ -1,39 +1,17 @@
 @import 'tailwindcss';
 @import '@skeletonlabs/skeleton';
-@import '@skeletonlabs/skeleton/themes/terminus';
+@import '@skeletonlabs/skeleton/themes/nouveau';
 @import '@skeletonlabs/skeleton-svelte';
 
 @source '../node_modules/@skeletonlabs/skeleton-svelte/dist';
 
 :root {
+	color-scheme: dark !important;
 	--shell-width: min(1140px, 94vw);
-	--app-bg: #fff;
-	--app-panel-bg: #fff;
-	--app-border: color-mix(in oklab, var(--color-surface-700) 16%, transparent);
-	--app-shadow: color-mix(in oklab, var(--color-surface-900) 8%, transparent);
-}
-
-@media (prefers-color-scheme: dark) {
-	:root {
-		--app-bg: #000;
-		--app-panel-bg: #050505;
-		--app-border: rgba(255, 255, 255, 0.18);
-		--app-shadow: rgba(0, 0, 0, 0.45);
-	}
-}
-
-html[data-resolved-mode='light'] {
-	--app-bg: #fff;
-	--app-panel-bg: #fff;
-	--app-border: color-mix(in oklab, var(--color-surface-700) 16%, transparent);
-	--app-shadow: color-mix(in oklab, var(--color-surface-900) 8%, transparent);
-}
-
-html[data-resolved-mode='dark'] {
-	--app-bg: #000;
-	--app-panel-bg: #050505;
-	--app-border: rgba(255, 255, 255, 0.18);
-	--app-shadow: rgba(0, 0, 0, 0.45);
+	--app-bg: var(--color-surface-950);
+	--app-panel-bg: color-mix(in oklab, var(--color-surface-900) 90%, transparent);
+	--app-border: color-mix(in oklab, var(--color-surface-200) 24%, transparent);
+	--app-shadow: rgba(0, 0, 0, 0.55);
 }
 
 * {
@@ -52,7 +30,7 @@ html {
 
 body {
 	min-height: 100vh;
-	color: light-dark(var(--color-surface-900), var(--color-surface-100));
+	color: var(--color-surface-100);
 	background: var(--app-bg);
 	line-height: 1.65;
 }
@@ -98,9 +76,9 @@ a {
 
 .nav-link:hover,
 .nav-link.active {
-	border-color: color-mix(in oklab, var(--color-primary-500) 28%, transparent);
-	background: color-mix(in oklab, var(--color-primary-50) 60%, transparent);
-	color: var(--color-primary-900);
+	border-color: color-mix(in oklab, var(--color-primary-300) 48%, transparent);
+	background: color-mix(in oklab, var(--color-primary-500) 30%, transparent);
+	color: var(--color-surface-50);
 	text-decoration: none;
 }
 
@@ -155,22 +133,6 @@ a {
 	color: var(--color-secondary-900);
 }
 
-.theme-toggle {
-	border: 1px solid color-mix(in oklab, var(--color-primary-500) 26%, transparent);
-	border-radius: 999px;
-	padding: 0.32rem 0.84rem;
-	font-size: 0.8rem;
-	font-weight: 600;
-	line-height: 1;
-	background: color-mix(in oklab, var(--color-primary-100) 42%, transparent);
-	color: var(--color-primary-900);
-	transition: all 180ms ease;
-}
-
-.theme-toggle:hover {
-	background: color-mix(in oklab, var(--color-primary-200) 55%, transparent);
-}
-
 .timeline {
 	position: relative;
 	display: grid;
@@ -204,21 +166,20 @@ a {
 	background: var(--app-panel-bg);
 }
 
-html[data-resolved-mode='dark'] .text-surface-950,
-html[data-resolved-mode='dark'] .text-surface-900,
-html[data-resolved-mode='dark'] .text-surface-800,
-html[data-resolved-mode='dark'] .text-surface-700 {
+.text-surface-950 {
+	color: var(--color-surface-50) !important;
+}
+
+.text-surface-900 {
 	color: var(--color-surface-100) !important;
 }
 
-html[data-resolved-mode='dark'] .theme-toggle {
-	border-color: rgba(255, 255, 255, 0.25);
-	background: rgba(255, 255, 255, 0.08);
-	color: #fff;
+.text-surface-800 {
+	color: var(--color-surface-200) !important;
 }
 
-html[data-resolved-mode='dark'] .theme-toggle:hover {
-	background: rgba(255, 255, 255, 0.14);
+.text-surface-700 {
+	color: var(--color-surface-300) !important;
 }
 
 .fade-slide {
