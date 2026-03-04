@@ -1,12 +1,12 @@
 <svelte:head>
 	<title>About | Adarsh Krishnan</title>
-	<meta name="description" content="About Adarsh Krishnan, Data Scientist based in London." />
+	<meta name="description" content="About Adarsh Krishnan, based in London." />
 	<link rel="canonical" href="https://adarshkrishnan.com/about/" />
 </svelte:head>
 
 <section class="panel p-5 md:p-7 fade-slide delay-1">
 	<p class="kicker">About</p>
-	<h1 class="section-title mb-3">Data Scientist based in London</h1>
+	<h1 class="section-title mb-3">Based in London</h1>
 	<p class="max-w-3xl text-surface-800">
 		I enjoy translating messy real-world data into insights and products that are actually usable by teams.
 		My work spans experimentation, analytics, and operational automation.

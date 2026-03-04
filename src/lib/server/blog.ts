@@ -7,6 +7,9 @@ import { marked } from 'marked';
 import type { BlogPost, BlogPostPreview } from '$lib/types';
 
 const BLOG_DIR = path.join(process.cwd(), 'content', 'blog');
+const shouldCachePosts = process.env.NODE_ENV === 'production';
+
+let cachedPostsPromise: Promise<BlogPost[]> | null = null;
 
 function toSlug(input: string): string {
 	return input
@@ -108,7 +111,7 @@ async function readPostFiles(): Promise<string[]> {
 	}
 }
 
-export async function getAllPosts(): Promise<BlogPost[]> {
+async function readAllPostsFromDisk(): Promise<BlogPost[]> {
 	const filePaths = await readPostFiles();
 
 	const posts = await Promise.all(
@@ -119,6 +122,21 @@ export async function getAllPosts(): Promise<BlogPost[]> {
 	);
 
 	return posts.sort((a, b) => b.date.localeCompare(a.date));
+}
+
+export async function getAllPosts(): Promise<BlogPost[]> {
+	if (!shouldCachePosts) {
+		return readAllPostsFromDisk();
+	}
+
+	if (!cachedPostsPromise) {
+		cachedPostsPromise = readAllPostsFromDisk().catch((error) => {
+			cachedPostsPromise = null;
+			throw error;
+		});
+	}
+
+	return cachedPostsPromise;
 }
 
 export async function getPostBySlug(slug: string): Promise<BlogPost | undefined> {
