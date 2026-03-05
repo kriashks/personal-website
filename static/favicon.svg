@@ -1,12 +1,40 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="AK monogram">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#2b7b5f"/>
-      <stop offset="1" stop-color="#1f5f49"/>
-    </linearGradient>
-  </defs>
-  <rect x="8" y="8" width="112" height="112" rx="24" fill="#fff8ef" stroke="#d4c5af"/>
-  <rect x="18" y="18" width="92" height="92" rx="18" fill="url(#g)"/>
-  <path d="M34 88L56 40h10l22 48h-10l-5-12H49l-5 12zm19-20h17l-8-20z" fill="#f7f4ee"/>
-  <path d="M95 40l-22 24 22 24H82L62 67v21H53V40h9v21l20-21z" fill="#f7f4ee"/>
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer Window Background -->
+  <rect x="2" y="8" width="60" height="48" rx="6" fill="#0A0A0A" />
+  
+  <!-- Mac-Style Terminal Header -->
+  <path d="M 2 20 L 2 14 a 6 6 0 0 1 6 -6 L 56 8 a 6 6 0 0 1 6 6 L 62 20 Z" fill="#1F1F1F" />
+  
+  <!-- Outer Window Border -->
+  <rect x="2" y="8" width="60" height="48" rx="6" fill="none" stroke="#333333" stroke-width="1.5" />
+  
+  <!-- Window Controls -->
+  <circle cx="10" cy="14" r="2.5" fill="#FF5F56" />
+  <circle cx="18" cy="14" r="2.5" fill="#FFBD2E" />
+  <circle cx="26" cy="14" r="2.5" fill="#27C93F" />
+
+  <!-- Terminal Content Group -->
+  <g fill="#00FF41">
+    <!-- BACKGROUND GLOW LAYER -->
+    <g opacity="0.3">
+      <text
+        x="16"
+        y="48"
+        font-size="30"
+        font-family="JetBrains Mono, ui-monospace, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace"
+        font-weight="500"
+      >ak</text>
+    </g>
+
+    <!-- FOREGROUND CORE LAYER -->
+    <g>
+      <text
+        x="16"
+        y="48"
+        font-size="30"
+        font-family="JetBrains Mono, ui-monospace, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace"
+        font-weight="500"
+      >ak</text>
+    </g>
+  </g>
 </svg>
