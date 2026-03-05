@@ -1,17 +1,28 @@
 <script lang="ts">
 	import { page } from '$app/state';
 
-	import { NAV_LINKS, SITE } from '$lib/site';
+	import Icon from '$lib/components/Icon.svelte';
+	import { NAV_LINKS } from '$lib/data/navigation';
+	import { SITE } from '$lib/site';
 
 	import '../app.css';
 
 	let { children } = $props();
 
-	const year = new Date().getFullYear();
+	const normalizePath = (path: string): string => {
+		if (path === '/') return '/';
+		return path.endsWith('/') ? path.slice(0, -1) : path;
+	};
 
 	const isActive = (href: string): boolean => {
-		if (href === '/') return page.url.pathname === '/';
-		return page.url.pathname.startsWith(href);
+		const current = normalizePath(page.url.pathname);
+		const target = normalizePath(href);
+
+		if (target === '/') {
+			return current === '/';
+		}
+
+		return current.startsWith(target);
 	};
 </script>
 
@@ -20,38 +31,38 @@
 	<link rel="icon" href="/favicon.svg" />
 </svelte:head>
 
-<div class="site-shell">
-	<header class="shell-nav panel card p-3 md:p-4 fade-slide">
-		<div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-			<div>
-				{#if SITE.tagline}
-					<p class="text-xs uppercase tracking-[0.28em] text-surface-700">{SITE.tagline}</p>
-				{/if}
-				<p class="brand-title text-xl font-black tracking-tight text-surface-950">{SITE.name}</p>
-			</div>
+<div class="app-root">
+	<div class="grid-overlay" aria-hidden="true"></div>
 
-			<div class="flex flex-wrap items-center gap-2.5">
-				<nav class="flex flex-wrap gap-1.5" aria-label="Primary">
-					{#each NAV_LINKS as link}
-						<a href={link.href} class="nav-link" class:active={isActive(link.href)}>{link.label}</a>
-					{/each}
-				</nav>
-			</div>
+	<header class="site-nav" aria-label="Main navigation">
+		<div class="nav-inner">
+			<a href="/" class="brand-link" aria-label="Home">
+				<Icon name="terminal" className="h-5 w-5" />
+				<span class="brand-label">adarsh.krishnan</span>
+			</a>
+
+			<ul class="nav-list">
+				{#each NAV_LINKS as link}
+					<li>
+						<a
+							href={link.href}
+							class="nav-item"
+							class:active={isActive(link.href)}
+							aria-current={isActive(link.href) ? 'page' : undefined}
+						>
+							<Icon name={link.icon} className="nav-icon" />
+							<span>{link.label}</span>
+							{#if isActive(link.href)}
+								<span class="nav-active-line" aria-hidden="true"></span>
+							{/if}
+						</a>
+					</li>
+				{/each}
+			</ul>
 		</div>
 	</header>
 
-	<main class="mt-5 flex flex-col gap-5">
+	<main>
 		{@render children()}
 	</main>
-
-	<footer class="panel card px-4 py-4 text-sm text-surface-700 fade-slide delay-3">
-		<div class="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-			<p>&copy; {year} {SITE.name}</p>
-			<div class="flex flex-wrap gap-3 text-sm">
-				<a href="mailto:adarshkrish@proton.me">Email</a>
-				<a href="https://github.com/kriashks" rel="noreferrer" target="_blank">GitHub</a>
-				<a href="https://www.linkedin.com/in/kriash/" rel="noreferrer" target="_blank">LinkedIn</a>
-			</div>
-		</div>
-	</footer>
 </div>

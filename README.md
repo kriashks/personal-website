@@ -1,9 +1,9 @@
 # Adarsh Krishnan - Personal Website
 
-Personal site rewritten with **SvelteKit + Skeleton UI** using the **Terminus** theme.
+Personal site built with **SvelteKit 2 + Svelte 5** and a custom terminal-inspired design system.
 
 - Framework: SvelteKit (static prerender)
-- UI system: Skeleton (`@skeletonlabs/skeleton` + `@skeletonlabs/skeleton-svelte`)
+- Styling: Tailwind CSS v4 + custom CSS tokens/components
 - Content source for blog posts: `content/blog/*.md`
 - Deployed to GitHub Pages via `.github/workflows/gh-pages.yml`
 
@@ -49,14 +49,9 @@ Template used by the scaffold command:
 
 - `src/routes/` - all pages and route handlers
 - `src/lib/server/blog.ts` - markdown loader/parser for blog posts
-- `src/app.css` - global styles and Skeleton/Tailwind imports
+- `src/lib/data/` - reusable data models for nav/about/photography content
+- `src/app.css` - global styles and terminal design tokens
 - `src/routes/sitemap.xml/+server.ts` - sitemap generation
-
-## Theme
-
-Theme is set globally in `src/app.html`:
-
-- `<html data-theme="terminus">`
 
 ## Deployment
 

@@ -3,6 +3,7 @@ export interface BlogPostFrontMatter {
 	date: string;
 	slug: string;
 	summary: string;
+	tags?: string[];
 }
 
 export interface BlogPost extends BlogPostFrontMatter {

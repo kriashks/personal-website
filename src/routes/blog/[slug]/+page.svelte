@@ -10,11 +10,13 @@
 	<link rel="canonical" href={`https://adarshkrishnan.com/blog/${data.post.slug}/`} />
 </svelte:head>
 
-<article class="panel p-5 md:p-7 fade-slide delay-1 blog-article">
-	<p class="kicker">Blog</p>
-	<h1 class="section-title mb-2">{data.post.title}</h1>
-	<p class="text-sm text-surface-700">{formatDate(data.post.date)}</p>
-	<div class="mt-4 text-surface-900">
-		{@html data.post.html}
-	</div>
-</article>
+<section class="page-shell">
+	<article class="terminal-card p-6 sm:p-8 md:p-10">
+		<p class="terminal-command mb-4">$ cat {data.post.slug}.md</p>
+		<h1 class="terminal-heading mb-3 text-3xl sm:text-4xl md:text-5xl">{data.post.title}</h1>
+		<p class="font-mono text-sm text-gray-500">{formatDate(data.post.date)}</p>
+		<div class="article-content mt-6">
+			{@html data.post.html}
+		</div>
+	</article>
+</section>

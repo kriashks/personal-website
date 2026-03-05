@@ -73,6 +73,13 @@ function parsePost(source: string, rawMarkdown: string): BlogPost {
 		typeof data.summary === 'string' && data.summary.trim()
 			? data.summary.trim()
 			: summaryFromBody(content);
+	const tags = Array.isArray(data.tags)
+		? data.tags
+				.filter((tag): tag is string => typeof tag === 'string')
+				.map((tag) => tag.trim())
+				.filter(Boolean)
+				.slice(0, 4)
+		: undefined;
 
 	if (!title) {
 		throw new Error(`Missing required front matter "title" in ${source}.`);
@@ -92,6 +99,7 @@ function parsePost(source: string, rawMarkdown: string): BlogPost {
 		date,
 		slug,
 		summary,
+		tags,
 		html
 	};
 }

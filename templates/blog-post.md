@@ -3,6 +3,8 @@ title: {{TITLE}}
 date: {{DATE}}
 slug: {{SLUG}}
 summary: {{SUMMARY}}
+tags:
+  - Writing
 ---
 
 Start with the problem this post solves.

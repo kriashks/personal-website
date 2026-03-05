@@ -11,12 +11,16 @@
 	<link rel="canonical" href="https://adarshkrishnan.com/404/" />
 </svelte:head>
 
-<section class="panel hero-panel p-6 md:p-8 fade-slide delay-1">
-	<p class="kicker">{status}</p>
-	<h1 class="section-title mb-3">{status === 404 ? 'Page not found' : 'Unexpected error'}</h1>
-	<p class="max-w-2xl text-surface-800">{message}</p>
-	<div class="mt-5 flex flex-wrap gap-2.5">
-		<a class="btn preset-filled-primary-500" href="/">Back to Home</a>
-		<a class="btn preset-outlined-secondary-700-300" href="/blog/">Go to Blog</a>
-	</div>
+<section class="page-shell">
+	<article class="terminal-card max-w-3xl p-7 sm:p-9">
+		<p class="terminal-command mb-4">$ status {status}</p>
+		<h1 class="terminal-heading mb-3 text-3xl sm:text-4xl">
+			{status === 404 ? 'Page not found' : 'Unexpected error'}
+		</h1>
+		<p class="text-gray-400">{message}</p>
+		<div class="mt-6 flex flex-wrap gap-3">
+			<a href="/" class="terminal-tag">Back to Home</a>
+			<a href="/blog/" class="terminal-tag">Go to Blog</a>
+		</div>
+	</article>
 </section>

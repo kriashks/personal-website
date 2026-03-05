@@ -5,7 +5,7 @@ import type { RequestHandler } from './$types';
 
 export const prerender = true;
 
-const staticRoutes = ['/', '/about/', '/blog/', '/experiences/'];
+const staticRoutes = ['/', '/about/', '/blog/', '/photography/'];
 
 export const GET: RequestHandler = async () => {
 	const posts = await getPostPreviews();
