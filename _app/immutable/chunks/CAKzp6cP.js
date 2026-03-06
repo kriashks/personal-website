@@ -1,1 +1,0 @@
-const a={description:"Personal website of Adarsh Krishnan, focused on analytics, experimentation, and practical data systems."},e=[{href:"https://github.com/kriashks",label:"GitHub",icon:"github",external:!0},{href:"https://www.linkedin.com/in/kriash/",label:"LinkedIn",icon:"linkedin",external:!0},{href:"mailto:adarshkrish@proton.me",label:"Email",icon:"mail"}];export{e as S,a};
