@@ -4,14 +4,27 @@
 
 	let selectedAlbum = $state<Album | null>(null);
 	let currentPhotoIndex = $state(0);
+	let photoViewerTopOffset = $state(80);
 
 	const currentPhoto = $derived(
 		selectedAlbum ? selectedAlbum.photos[currentPhotoIndex % selectedAlbum.photos.length] : null
 	);
 
+	const closeButtonTopOffset = $derived(Math.max(photoViewerTopOffset - 8, 16));
+
+	const updatePhotoViewerTopOffset = (): void => {
+		if (typeof document === 'undefined') return;
+
+		const siteNav = document.querySelector<HTMLElement>('.site-nav');
+		const siteNavHeight = siteNav?.getBoundingClientRect().height ?? 0;
+
+		photoViewerTopOffset = Math.ceil(siteNavHeight) + 24;
+	};
+
 	const openAlbum = (album: Album): void => {
 		selectedAlbum = album;
 		currentPhotoIndex = 0;
+		updatePhotoViewerTopOffset();
 	};
 
 	const closeAlbum = (): void => {
@@ -45,6 +58,11 @@
 			showNextPhoto();
 		}
 	};
+
+	const handleWindowResize = (): void => {
+		if (!selectedAlbum) return;
+		updatePhotoViewerTopOffset();
+	};
 </script>
 
 <svelte:head>
@@ -53,7 +71,7 @@
 	<link rel="canonical" href="https://adarshkrishnan.com/photography/" />
 </svelte:head>
 
-<svelte:window onkeydown={handleWindowKeydown} />
+<svelte:window onkeydown={handleWindowKeydown} onresize={handleWindowResize} />
 
 <section class="page-shell">
 	<header class="mb-12 sm:mb-16">
@@ -104,6 +122,7 @@
 {#if selectedAlbum && currentPhoto}
 	<div
 		class="fixed inset-0 z-[60] overflow-y-auto bg-black/95 px-4 py-6 sm:px-6 sm:py-8"
+		style={`padding-top: calc(${photoViewerTopOffset}px + env(safe-area-inset-top, 0px));`}
 		role="dialog"
 		aria-modal="true"
 		aria-labelledby="photo-viewer-title"
@@ -113,6 +132,7 @@
 				type="button"
 				onclick={closeAlbum}
 				class="fixed right-4 top-4 z-[70] rounded-lg border border-green-500/30 bg-green-500/10 p-2 text-green-400 transition-colors hover:border-green-500 hover:bg-green-500/20"
+				style={`top: calc(${closeButtonTopOffset}px + env(safe-area-inset-top, 0px));`}
 				aria-label="Close photo viewer"
 			>
 				<Icon name="x" className="h-5 w-5 sm:h-6 sm:w-6" />

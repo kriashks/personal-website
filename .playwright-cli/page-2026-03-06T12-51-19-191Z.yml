@@ -1,0 +1,62 @@
+- generic [ref=e3]:
+  - banner "Main navigation" [ref=e4]:
+    - generic [ref=e5]:
+      - link "Home" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img [ref=e7]
+        - generic [ref=e10]: adarsh.krishnan
+      - list [ref=e11]:
+        - listitem [ref=e12]:
+          - link "home" [ref=e13] [cursor=pointer]:
+            - /url: /
+            - img [ref=e14]
+            - generic [ref=e17]: home
+        - listitem [ref=e19]:
+          - link "blog" [ref=e20] [cursor=pointer]:
+            - /url: /blog/
+            - img [ref=e21]
+            - generic [ref=e23]: blog
+        - listitem [ref=e24]:
+          - link "photography" [ref=e25] [cursor=pointer]:
+            - /url: /photography/
+            - img [ref=e26]
+            - generic [ref=e29]: photography
+        - listitem [ref=e30]:
+          - link "about" [ref=e31] [cursor=pointer]:
+            - /url: /about/
+            - img [ref=e32]
+            - generic [ref=e35]: about
+  - main [ref=e36]:
+    - generic [ref=e37]:
+      - generic [ref=e38]:
+        - paragraph [ref=e39]: $ whoami
+        - heading "Adarsh Krishnan" [level=1] [ref=e40]
+        - paragraph [ref=e41]:
+          - generic [ref=e42]: ">"
+          - generic [ref=e43]: developer. writer. photographer.
+          - text: _
+        - paragraph [ref=e44]: Welcome to my corner of the internet. I build practical data systems, write about product and analytics, and document visual stories from everyday travel.
+        - generic "Social links" [ref=e45]:
+          - link "GitHub" [ref=e46] [cursor=pointer]:
+            - /url: https://github.com/kriashks
+            - img [ref=e47]
+          - link "LinkedIn" [ref=e49] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/kriash/
+            - img [ref=e50]
+          - link "Email" [ref=e54] [cursor=pointer]:
+            - /url: mailto:adarshkrish@proton.me
+            - img [ref=e55]
+      - generic [ref=e58]:
+        - 'link "Latest Thoughts Exploring experimentation, analytics implementation, and practical software decisions. Latest: What Is Bioinformatics" [ref=e59] [cursor=pointer]':
+          - /url: /blog/
+          - generic [ref=e60]:
+            - heading "Latest Thoughts" [level=2] [ref=e61]
+            - img [ref=e62]
+          - paragraph [ref=e64]: Exploring experimentation, analytics implementation, and practical software decisions.
+          - paragraph [ref=e65]: "Latest: What Is Bioinformatics"
+        - link "Visual Stories A curated photography archive covering cities, landscapes, and wildlife captured through my lens." [ref=e66] [cursor=pointer]:
+          - /url: /photography/
+          - generic [ref=e67]:
+            - heading "Visual Stories" [level=2] [ref=e68]
+            - img [ref=e69]
+          - paragraph [ref=e71]: A curated photography archive covering cities, landscapes, and wildlife captured through my lens.

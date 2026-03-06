@@ -3,7 +3,6 @@
 
 	import Icon from '$lib/components/Icon.svelte';
 	import { NAV_LINKS } from '$lib/data/navigation';
-	import { SITE } from '$lib/site';
 
 	import '../app.css';
 
@@ -27,7 +26,6 @@
 </script>
 
 <svelte:head>
-	<meta name="description" content={SITE.description} />
 	<link rel="icon" href="/favicon.svg" />
 </svelte:head>
 
@@ -51,7 +49,10 @@
 							aria-current={isActive(link.href) ? 'page' : undefined}
 						>
 							<Icon name={link.icon} className="nav-icon" />
-							<span>{link.label}</span>
+							<span class:nav-label-mobile={!!link.mobileLabel}>{link.label}</span>
+							{#if link.mobileLabel}
+								<span class="nav-label-short">{link.mobileLabel}</span>
+							{/if}
 							{#if isActive(link.href)}
 								<span class="nav-active-line" aria-hidden="true"></span>
 							{/if}
