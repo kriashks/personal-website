@@ -14,6 +14,10 @@ It is deployed to GitHub Pages at `https://adarshkrishnan.com/`.
 - UI: `@skeletonlabs/skeleton` + `@skeletonlabs/skeleton-svelte`
 - Blog source: markdown in `content/blog/*.md`
 
+## Workflow Rules
+
+- Commit the repo changes at the end of every completed task unless the user explicitly says not to commit.
+
 ## Key Commands
 
 ### Install dependencies

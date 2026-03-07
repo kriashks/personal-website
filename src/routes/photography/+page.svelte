@@ -115,7 +115,7 @@
 	</ul>
 
 	<div class="terminal-footer mt-9 sm:mt-12">
-		{PHOTOGRAPHY_ALBUMS.length} albums listed <span class="animate-pulse">_</span>
+		{PHOTOGRAPHY_ALBUMS.length} album listed <span class="animate-pulse">_</span>
 	</div>
 </section>
 
