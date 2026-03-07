@@ -47,8 +47,14 @@
 						<div class="flex flex-wrap items-center gap-4 text-xs text-gray-500 sm:text-sm">
 							<time class="inline-flex items-center gap-1 font-mono" datetime={post.date}>
 								<Icon name="calendar" className="h-4 w-4" />
-								{formatDate(post.date)}
+								Published {formatDate(post.date)}
 							</time>
+							{#if post.lastmod}
+								<time class="inline-flex items-center gap-1 font-mono" datetime={post.lastmod}>
+									<Icon name="calendar" className="h-4 w-4" />
+									Updated {formatDate(post.lastmod)}
+								</time>
+							{/if}
 							<span class="inline-flex items-center gap-1 font-mono">
 								<Icon name="clock" className="h-4 w-4" />
 								{post.readTime}

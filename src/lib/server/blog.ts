@@ -60,11 +60,35 @@ function normalizeDate(rawDate: unknown, source: string): string {
 	return normalized;
 }
 
+function normalizeOptionalDate(rawDate: unknown, source: string, fieldName: string): string | undefined {
+	if (rawDate === undefined || rawDate === null || rawDate === '') {
+		return undefined;
+	}
+
+	if (rawDate instanceof Date && !Number.isNaN(rawDate.getTime())) {
+		return rawDate.toISOString().slice(0, 10);
+	}
+
+	if (typeof rawDate !== 'string' || !rawDate.trim()) {
+		throw new Error(`Invalid front matter "${fieldName}" in ${source}. Use YYYY-MM-DD.`);
+	}
+
+	const normalized = rawDate.trim();
+	if (!/^\d{4}-\d{2}-\d{2}$/.test(normalized)) {
+		throw new Error(
+			`Invalid ${fieldName} format "${rawDate}" in ${source}. Use YYYY-MM-DD.`
+		);
+	}
+
+	return normalized;
+}
+
 function parsePost(source: string, rawMarkdown: string): BlogPost {
 	const { data, content } = matter(rawMarkdown);
 
 	const title = typeof data.title === 'string' ? data.title.trim() : '';
 	const date = normalizeDate(data.date, source);
+	const lastmod = normalizeOptionalDate(data.lastmod, source, 'lastmod');
 	const slug =
 		typeof data.slug === 'string' && data.slug.trim()
 			? toSlug(data.slug)
@@ -97,6 +121,7 @@ function parsePost(source: string, rawMarkdown: string): BlogPost {
 	return {
 		title,
 		date,
+		lastmod,
 		slug,
 		summary,
 		tags,

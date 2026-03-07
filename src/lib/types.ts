@@ -1,6 +1,7 @@
 export interface BlogPostFrontMatter {
 	title: string;
 	date: string;
+	lastmod?: string;
 	slug: string;
 	summary: string;
 	tags?: string[];

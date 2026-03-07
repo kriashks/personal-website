@@ -16,7 +16,14 @@
 		<article class="terminal-card min-w-0 flex-1 p-6 sm:p-8 md:p-10">
 			<p class="terminal-command mb-4">$ cat {data.post.slug}.md</p>
 			<h1 class="terminal-heading mb-3 text-3xl sm:text-4xl md:text-5xl">{data.post.title}</h1>
-			<p class="font-mono text-sm text-gray-500">{formatDate(data.post.date)}</p>
+			<div class="flex flex-wrap items-center gap-4 text-sm text-gray-500">
+				<time class="font-mono" datetime={data.post.date}>Published {formatDate(data.post.date)}</time>
+				{#if data.post.lastmod}
+					<time class="font-mono" datetime={data.post.lastmod}>
+						Updated {formatDate(data.post.lastmod)}
+					</time>
+				{/if}
+			</div>
 			<div class="article-content mt-6">
 				{@html data.post.html}
 			</div>
@@ -55,8 +62,14 @@
 								<div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-gray-500">
 									<time class="inline-flex items-center gap-1 font-mono" datetime={post.date}>
 										<Icon name="calendar" className="h-4 w-4" />
-										{formatDate(post.date)}
+										Published {formatDate(post.date)}
 									</time>
+									{#if post.lastmod}
+										<time class="inline-flex items-center gap-1 font-mono" datetime={post.lastmod}>
+											<Icon name="calendar" className="h-4 w-4" />
+											Updated {formatDate(post.lastmod)}
+										</time>
+									{/if}
 									<span class="inline-flex items-center gap-1 font-mono">
 										<Icon name="clock" className="h-4 w-4" />
 										{post.readTime}
