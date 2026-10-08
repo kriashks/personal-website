@@ -9,7 +9,9 @@ const config = {
 			fallback: '404.html'
 		}),
 		prerender: {
-			handleHttpError: 'warn'
+			handleHttpError: 'warn',
+			// Dynamic routes may have no entries yet (e.g. no albums published); that is not an error.
+			handleUnseenRoutes: 'ignore'
 		}
 	}
 };

@@ -2,6 +2,8 @@ name: Build & deploy website
 on:
   push:
     branches: [main]
+  repository_dispatch:
+    types: [sanity-publish]
   workflow_dispatch:
     inputs:
       output_dir:
@@ -29,6 +31,9 @@ jobs:
       - name: Build site
         env:
           OUTPUT_DIR: ${{ github.event.inputs.output_dir || 'public' }}
+          PUBLIC_SANITY_PROJECT_ID: ${{ vars.PUBLIC_SANITY_PROJECT_ID || 'xsttrmdn' }}
+          PUBLIC_SANITY_DATASET: ${{ vars.PUBLIC_SANITY_DATASET || 'production' }}
+          PUBLIC_SANITY_SAMPLE: ${{ vars.PUBLIC_SANITY_SAMPLE || '0' }}
         run: |
           set -euo pipefail
 
@@ -90,7 +95,7 @@ jobs:
 # 2a. Default route – publish to GitHub Pages
 # ------------------------------------------------------
   deploy-pages:
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' || github.event_name == 'repository_dispatch'
     needs: build
     runs-on: ubuntu-latest
     steps:

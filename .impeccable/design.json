@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-08T00:00:00Z",
+  "title": "Design System: Adarsh Krishnan",
+  "extensions": {
+    "colorMeta": {
+      "accent": { "role": "primary", "displayName": "Accent Blue", "canonical": "#0b63ce", "tonalRamp": ["#04173a", "#072b6a", "#09429a", "#0b63ce", "#3f96ff", "#7ab6ff", "#b6d5ff", "#e4f0ff"] },
+      "dark-accent": { "role": "primary", "displayName": "Accent Blue (dark)", "canonical": "#3f96ff", "tonalRamp": ["#04173a", "#072b6a", "#09429a", "#0b63ce", "#3f96ff", "#7ab6ff", "#b6d5ff", "#e4f0ff"] },
+      "accent-ink": { "role": "primary", "displayName": "Accent Ink", "canonical": "#ffffff", "tonalRamp": ["#1d1d1f", "#515154", "#6e6e73", "#98989d", "#c7c7cc", "#e5e5ea", "#f5f5f7", "#ffffff"] },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#1d1d1f", "tonalRamp": ["#000000", "#121214", "#1d1d1f", "#515154", "#6e6e73", "#98989d", "#c7c7cc", "#f5f5f7"] },
+      "ink-2": { "role": "neutral", "displayName": "Ink 2", "canonical": "#515154", "tonalRamp": ["#000000", "#121214", "#1d1d1f", "#515154", "#6e6e73", "#98989d", "#c7c7cc", "#f5f5f7"] },
+      "ink-3": { "role": "neutral", "displayName": "Ink 3", "canonical": "#6e6e73", "tonalRamp": ["#000000", "#121214", "#1d1d1f", "#515154", "#6e6e73", "#98989d", "#c7c7cc", "#f5f5f7"] },
+      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "#ffffff", "tonalRamp": ["#000000", "#121214", "#1c1c1e", "#515154", "#98989d", "#e5e5ea", "#f5f5f7", "#ffffff"] },
+      "paper-band": { "role": "neutral", "displayName": "Paper Band", "canonical": "#f5f5f7", "tonalRamp": ["#000000", "#121214", "#1c1c1e", "#515154", "#98989d", "#e5e5ea", "#f5f5f7", "#ffffff"] },
+      "hairline": { "role": "neutral", "displayName": "Hairline", "canonical": "rgba(0, 0, 0, 0.09)", "tonalRamp": ["rgba(0,0,0,0.9)", "rgba(0,0,0,0.7)", "rgba(0,0,0,0.5)", "rgba(0,0,0,0.3)", "rgba(0,0,0,0.2)", "rgba(0,0,0,0.14)", "rgba(0,0,0,0.09)", "rgba(0,0,0,0.04)"] },
+      "nav-glass": { "role": "neutral", "displayName": "Nav Glass", "canonical": "rgba(255, 255, 255, 0.72)", "tonalRamp": ["rgba(0,0,0,0.7)", "rgba(0,0,0,0.5)", "rgba(0,0,0,0.3)", "rgba(128,128,128,0.5)", "rgba(255,255,255,0.3)", "rgba(255,255,255,0.5)", "rgba(255,255,255,0.72)", "rgba(255,255,255,0.9)"] },
+      "code-ground": { "role": "neutral", "displayName": "Code Ground", "canonical": "#f5f5f7", "tonalRamp": ["#000000", "#161618", "#1c1c1e", "#515154", "#98989d", "#e5e5ea", "#f5f5f7", "#ffffff"] },
+      "dark-ink": { "role": "neutral", "displayName": "Ink (dark)", "canonical": "#f5f5f7", "tonalRamp": ["#000000", "#121214", "#1d1d1f", "#515154", "#6e6e73", "#98989d", "#c7c7cc", "#f5f5f7"] },
+      "dark-ink-2": { "role": "neutral", "displayName": "Ink 2 (dark)", "canonical": "#c7c7cc", "tonalRamp": ["#000000", "#121214", "#1d1d1f", "#515154", "#6e6e73", "#98989d", "#c7c7cc", "#f5f5f7"] },
+      "dark-ink-3": { "role": "neutral", "displayName": "Ink 3 (dark)", "canonical": "#98989d", "tonalRamp": ["#000000", "#121214", "#1d1d1f", "#515154", "#6e6e73", "#98989d", "#c7c7cc", "#f5f5f7"] },
+      "dark-ground": { "role": "neutral", "displayName": "True Black", "canonical": "#000000", "tonalRamp": ["#000000", "#121214", "#1c1c1e", "#515154", "#98989d", "#e5e5ea", "#f5f5f7", "#ffffff"] },
+      "dark-band": { "role": "neutral", "displayName": "Dark Band", "canonical": "#121214", "tonalRamp": ["#000000", "#121214", "#1c1c1e", "#515154", "#98989d", "#e5e5ea", "#f5f5f7", "#ffffff"] },
+      "dark-hairline": { "role": "neutral", "displayName": "Hairline (dark)", "canonical": "rgba(255, 255, 255, 0.14)", "tonalRamp": ["rgba(255,255,255,0.04)", "rgba(255,255,255,0.09)", "rgba(255,255,255,0.14)", "rgba(255,255,255,0.2)", "rgba(255,255,255,0.3)", "rgba(255,255,255,0.5)", "rgba(255,255,255,0.7)", "rgba(255,255,255,0.9)"] },
+      "dark-accent-ink": { "role": "primary", "displayName": "Accent Ink (dark)", "canonical": "#000000", "tonalRamp": ["#000000", "#121214", "#1d1d1f", "#515154", "#6e6e73", "#98989d", "#c7c7cc", "#f5f5f7"] },
+      "dark-nav-glass": { "role": "neutral", "displayName": "Nav Glass (dark)", "canonical": "rgba(0, 0, 0, 0.7)", "tonalRamp": ["rgba(0,0,0,0.9)", "rgba(0,0,0,0.7)", "rgba(0,0,0,0.5)", "rgba(0,0,0,0.3)", "rgba(255,255,255,0.3)", "rgba(255,255,255,0.5)", "rgba(255,255,255,0.72)", "rgba(255,255,255,0.9)"] },
+      "dark-code-ground": { "role": "neutral", "displayName": "Code Ground (dark)", "canonical": "#161618", "tonalRamp": ["#000000", "#161618", "#1c1c1e", "#515154", "#98989d", "#e5e5ea", "#f5f5f7", "#ffffff"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "The home page name only." },
+      "title-1": { "displayName": "Title 1", "purpose": "Page and post titles in a page head." },
+      "title-2": { "displayName": "Title 2", "purpose": "Section headings." },
+      "title-3": { "displayName": "Title 3", "purpose": "Sub-section headings." },
+      "lede": { "displayName": "Lede", "purpose": "One-line claim under a page-head title; Ink 2, balanced, max 38rem." },
+      "body": { "displayName": "Body", "purpose": "Default UI text, summaries, captions; ss01 and cv05 enabled." },
+      "prose": { "displayName": "Prose", "purpose": "Article body in the 42rem column; headings scale off the body em." },
+      "meta": { "displayName": "Meta", "purpose": "Dates, read times and periods; tabular numerals via .numeric." },
+      "code": { "displayName": "Code", "purpose": "JetBrains Mono inside code, pre and kbd only." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "ease", "value": "cubic-bezier(0.2, 0.8, 0.2, 1)", "purpose": "The single house easing for every transition." },
+      { "name": "reveal", "value": "opacity 700ms, transform 900ms from translateY(14px) scale(0.985); IntersectionObserver threshold 0.08, rootMargin 0 0 -8% 0; sibling stagger 60 to 80ms", "purpose": "Elements settle into place on viewport entry." },
+      { "name": "frame-hover", "value": "transform 900ms to scale(1.03)", "purpose": "Album cover breathes on hover." },
+      { "name": "button", "value": "transform, background-color, color, opacity 220ms; hover translateY(-1px), active scale(0.98)", "purpose": "Pill button feedback." },
+      { "name": "link-arrow", "value": "transform 200ms, translateX(3px) or translateX(-3px) for back links", "purpose": "Arrow nudge on hover." },
+      { "name": "theme-crossfade", "value": "background-color, color, border-color 300ms while html.theme-transition is set (removed after 350ms)", "purpose": "Theme toggle crossfade." },
+      { "name": "nav-edge", "value": "border-color 300ms; hairline appears after 8px scroll", "purpose": "Nav bottom edge on scroll." },
+      { "name": "lightbox", "value": "lb-in 260ms opacity; lb-img 320ms opacity and scale from 0.985", "purpose": "Lightbox open and image swap." },
+      { "name": "reduced-motion", "value": "prefers-reduced-motion: reduce disables reveal, frame hover, button and arrow transitions and smooth scroll", "purpose": "Motion is opt-out by system preference." }
+    ],
+    "breakpoints": [
+      { "name": "nav-compact", "value": "30rem" },
+      { "name": "two-column", "value": "40rem" },
+      { "name": "md", "value": "48rem" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Ink pill; the hero's lead action.",
+      "html": "<a class=\"ds-btn ds-btn-primary\" href=\"#\">Read the blog</a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.7rem 1.25rem; border-radius: 999px; font-family: var(--font, Figtree, system-ui, sans-serif); font-size: 1rem; font-weight: 600; line-height: 1; border: 0; cursor: pointer; text-decoration: none; transition: transform 220ms var(--ease, cubic-bezier(0.2,0.8,0.2,1)), background-color 220ms var(--ease, cubic-bezier(0.2,0.8,0.2,1)), color 220ms var(--ease, cubic-bezier(0.2,0.8,0.2,1)), opacity 220ms var(--ease, cubic-bezier(0.2,0.8,0.2,1)); } .ds-btn:hover { transform: translateY(-1px); } .ds-btn:active { transform: translateY(0) scale(0.98); } .ds-btn:focus-visible { outline: 2px solid var(--accent, #0b63ce); outline-offset: 3px; } .ds-btn-primary { background: var(--ink, #1d1d1f); color: var(--bg, #ffffff); } .ds-btn-primary:hover { opacity: 0.86; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Ink-7% pill; the hero's second action.",
+      "html": "<a class=\"ds-btn ds-btn-secondary\" href=\"#\">See the photographs</a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.7rem 1.25rem; border-radius: 999px; font-family: var(--font, Figtree, system-ui, sans-serif); font-size: 1rem; font-weight: 600; line-height: 1; border: 0; cursor: pointer; text-decoration: none; transition: transform 220ms var(--ease, cubic-bezier(0.2,0.8,0.2,1)), background-color 220ms var(--ease, cubic-bezier(0.2,0.8,0.2,1)); } .ds-btn:hover { transform: translateY(-1px); } .ds-btn:active { transform: translateY(0) scale(0.98); } .ds-btn:focus-visible { outline: 2px solid var(--accent, #0b63ce); outline-offset: 3px; } .ds-btn-secondary { background: color-mix(in srgb, var(--ink, #1d1d1f) 7%, transparent); color: var(--ink, #1d1d1f); } .ds-btn-secondary:hover { background: color-mix(in srgb, var(--ink, #1d1d1f) 12%, transparent); }"
+    },
+    {
+      "name": "Arrow Link",
+      "kind": "custom",
+      "refersTo": "link",
+      "description": "Accent text link with a drawn SVG chevron that nudges right on hover.",
+      "html": "<a class=\"ds-link ds-link-arrow\" href=\"#\">All posts<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m10 6 6 6-6 6\"/></svg></a>",
+      "css": ".ds-link { color: var(--accent, #0b63ce); font-family: var(--font, Figtree, system-ui, sans-serif); font-weight: 500; text-decoration: none; } .ds-link:hover { text-decoration: underline; text-underline-offset: 0.2em; } .ds-link:focus-visible { outline: 2px solid var(--accent, #0b63ce); outline-offset: 3px; border-radius: 4px; } .ds-link-arrow { display: inline-flex; align-items: center; gap: 0.2em; } .ds-link-arrow svg { width: 0.95em; height: 0.95em; transition: transform 200ms var(--ease, cubic-bezier(0.2,0.8,0.2,1)); } .ds-link-arrow:hover svg { transform: translateX(3px); }"
+    },
+    {
+      "name": "Tag",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "Static pill for post tags and skills; no states.",
+      "html": "<ul class=\"ds-tags\"><li class=\"ds-tag\">Python</li><li class=\"ds-tag\">Streamlit</li></ul>",
+      "css": ".ds-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0; padding: 0; list-style: none; } .ds-tag { font-family: var(--font, Figtree, system-ui, sans-serif); font-size: 0.75rem; font-weight: 600; color: var(--ink-2, #515154); background: color-mix(in srgb, var(--ink, #1d1d1f) 7%, transparent); padding: 0.3rem 0.65rem; border-radius: 999px; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "nav",
+      "description": "Slim translucent fixed bar: brand left, links and theme toggle right; hairline edge once scrolled.",
+      "html": "<header class=\"ds-nav ds-nav-scrolled\"><div class=\"ds-nav-inner\"><a class=\"ds-brand\" href=\"#\">Adarsh Krishnan</a><ul class=\"ds-nav-links\"><li><a class=\"ds-nav-link\" href=\"#\" aria-current=\"page\">Blog</a></li><li><a class=\"ds-nav-link\" href=\"#\">Photography</a></li><li><a class=\"ds-nav-link\" href=\"#\">About</a></li><li><button class=\"ds-theme-toggle\" type=\"button\" aria-label=\"Switch to dark mode\"><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z\"/></svg></button></li></ul></div></header>",
+      "css": ".ds-nav { position: relative; height: 3rem; background: var(--nav-bg, rgba(255,255,255,0.72)); -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid transparent; font-family: var(--font, Figtree, system-ui, sans-serif); transition: border-color 300ms var(--ease, cubic-bezier(0.2,0.8,0.2,1)); } .ds-nav-scrolled { border-bottom-color: var(--line, rgba(0,0,0,0.09)); } .ds-nav-inner { max-width: 61rem; margin-inline: auto; padding-inline: 1.25rem; height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem; } .ds-brand { font-weight: 700; letter-spacing: -0.02em; font-size: 0.95rem; color: var(--ink, #1d1d1f); text-decoration: none; white-space: nowrap; } .ds-nav-links { display: flex; align-items: center; gap: 1.5rem; margin: 0; padding: 0; list-style: none; } .ds-nav-link { font-size: 0.8125rem; font-weight: 500; color: var(--ink-2, #515154); text-decoration: none; padding-block: 0.25rem; transition: color 200ms var(--ease, cubic-bezier(0.2,0.8,0.2,1)); } .ds-nav-link:hover, .ds-nav-link[aria-current='page'] { color: var(--ink, #1d1d1f); } .ds-nav-link:focus-visible, .ds-brand:focus-visible, .ds-theme-toggle:focus-visible { outline: 2px solid var(--accent, #0b63ce); outline-offset: 3px; border-radius: 4px; } .ds-theme-toggle { display: inline-flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; border-radius: 999px; border: 0; background: transparent; color: var(--ink-2, #515154); cursor: pointer; transition: background-color 200ms var(--ease, cubic-bezier(0.2,0.8,0.2,1)), color 200ms var(--ease, cubic-bezier(0.2,0.8,0.2,1)); } .ds-theme-toggle:hover { background: color-mix(in srgb, var(--ink, #1d1d1f) 8%, transparent); color: var(--ink, #1d1d1f); }"
+    },
+    {
+      "name": "Media Frame",
+      "kind": "card",
+      "refersTo": "frame",
+      "description": "Rounded, clipped image frame with band placeholder; hover variant zooms the image 3%.",
+      "html": "<a class=\"ds-album\" href=\"#\"><div class=\"ds-frame ds-frame-hover\"><img src=\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300'><rect width='400' height='300' fill='%23c7c7cc'/></svg>\" alt=\"\"></div><h2>Urban Nights</h2><p>3 photographs · City lights and architecture after dark.</p></a>",
+      "css": ".ds-album { display: block; text-decoration: none; color: var(--ink, #1d1d1f); font-family: var(--font, Figtree, system-ui, sans-serif); max-width: 24rem; } .ds-frame { position: relative; overflow: hidden; border-radius: 1.125rem; background: var(--bg-alt, #f5f5f7); aspect-ratio: 4 / 3; } .ds-frame img { display: block; width: 100%; height: 100%; object-fit: cover; } .ds-frame-hover img { transition: transform 900ms var(--ease, cubic-bezier(0.2,0.8,0.2,1)); } .ds-frame-hover:hover img { transform: scale(1.03); } .ds-album h2 { margin: 1rem 0 0; font-size: 1.375rem; font-weight: 600; letter-spacing: -0.02em; line-height: 1.08; } .ds-album p { margin: 0.25rem 0 0; color: var(--ink-2, #515154); font-size: 1.0625rem; line-height: 1.55; } .ds-album:focus-visible { outline: 2px solid var(--accent, #0b63ce); outline-offset: 3px; border-radius: 4px; }"
+    },
+    {
+      "name": "Post Row",
+      "kind": "custom",
+      "refersTo": "post-list",
+      "description": "Hairline-separated list row: date column, title, summary, read time.",
+      "html": "<ul class=\"ds-post-list\"><li><article class=\"ds-post-row\"><time class=\"ds-meta\">February 12, 2024</time><div><h2><a href=\"#\">What Is Bioinformatics</a></h2><p class=\"ds-summary\">A short introduction to where biology and computing intersect.</p><p class=\"ds-meta ds-read\">1 min read</p></div></article></li><li><article class=\"ds-post-row\"><time class=\"ds-meta\">January 5, 2024</time><div><h2><a href=\"#\">How to master Streamlit for Data Science</a></h2><p class=\"ds-summary\">A concise learning path for shipping useful Streamlit apps quickly.</p><p class=\"ds-meta ds-read\">1 min read</p></div></article></li></ul>",
+      "css": ".ds-post-list { list-style: none; margin: 0; padding: 0; font-family: var(--font, Figtree, system-ui, sans-serif); color: var(--ink, #1d1d1f); } .ds-post-list > li + li { border-top: 1px solid var(--line, rgba(0,0,0,0.09)); } .ds-post-row { display: grid; grid-template-columns: 9rem 1fr; gap: 2rem; padding-block: 2.5rem; } .ds-meta { font-size: 0.875rem; font-weight: 500; color: var(--ink-3, #6e6e73); font-variant-numeric: tabular-nums; margin: 0; } .ds-post-row h2 { margin: 0; font-size: 1.75rem; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; } .ds-post-row h2 a { color: inherit; text-decoration: none; transition: color 200ms var(--ease, cubic-bezier(0.2,0.8,0.2,1)); } .ds-post-row h2 a:hover { color: var(--accent, #0b63ce); } .ds-post-row h2 a:focus-visible { outline: 2px solid var(--accent, #0b63ce); outline-offset: 3px; border-radius: 4px; } .ds-summary { margin: 0.5rem 0 0; color: var(--ink-2, #515154); font-size: 1.0625rem; line-height: 1.55; max-width: 60ch; } .ds-read { margin-top: 0.75rem; }"
+    },
+    {
+      "name": "Code Block",
+      "kind": "custom",
+      "refersTo": "code-block",
+      "description": "JetBrains Mono block on the code ground with an optional filename bar.",
+      "html": "<div class=\"ds-code-block\"><div class=\"ds-filename\">app.py</div><pre><code>import streamlit as st\nimport pandas as pd</code></pre></div>",
+      "css": ".ds-code-block { border-radius: 0.75rem; background: var(--code-bg, #f5f5f7); overflow: hidden; font-family: var(--mono, 'JetBrains Mono', ui-monospace, Menlo, monospace); } .ds-filename { font-size: 0.75rem; color: var(--ink-3, #6e6e73); padding: 0.6rem 1rem; border-bottom: 1px solid var(--line, rgba(0,0,0,0.09)); } .ds-code-block pre { margin: 0; padding: 1rem 1.1rem; overflow-x: auto; font-size: 0.85rem; line-height: 1.6; color: var(--ink, #1d1d1f); } .ds-code-block code { font-family: inherit; }"
+    },
+    {
+      "name": "Footer",
+      "kind": "custom",
+      "refersTo": "footer",
+      "description": "Band-ground footer with copyright left and SVG social links right; no border above.",
+      "html": "<footer class=\"ds-footer\"><div class=\"ds-footer-inner\"><p>© 2026 Adarsh Krishnan</p><ul class=\"ds-footer-links\"><li><a href=\"#\"><svg viewBox=\"0 0 24 24\" width=\"14\" height=\"14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"3\" y=\"6\" width=\"18\" height=\"12\" rx=\"2\"/><path d=\"m4 8 8 6 8-6\"/></svg>Email</a></li></ul></div></footer>",
+      "css": ".ds-footer { background: var(--bg-alt, #f5f5f7); padding: 2.5rem 1.25rem; font-family: var(--font, Figtree, system-ui, sans-serif); font-size: 0.8125rem; color: var(--ink-3, #6e6e73); } .ds-footer-inner { max-width: 61rem; margin-inline: auto; display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: center; justify-content: space-between; } .ds-footer p { margin: 0; } .ds-footer-links { display: flex; flex-wrap: wrap; gap: 1.25rem; margin: 0; padding: 0; list-style: none; } .ds-footer-links a { display: inline-flex; align-items: center; gap: 0.375rem; color: var(--ink-2, #515154); font-weight: 500; text-decoration: none; } .ds-footer-links a:hover { color: var(--ink, #1d1d1f); } .ds-footer-links a:focus-visible { outline: 2px solid var(--accent, #0b63ce); outline-offset: 3px; border-radius: 4px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Quiet Gallery",
+    "overview": "A personal site holding two reading modes, long-form text and large photographs, on a ground that never competes with either. The category standard (apple.com) played straight with a different face: one sans family, headlines set very large and tightly tracked, air measured in viewport units, and structure carried by alternating white and soft grey bands rather than by boxes, borders or shadows.\n\nDensity is low on purpose. A page is a centered headline, a one-line lede, then one thing: a photograph in a rounded frame or a 42rem reading column. Colour is withheld; the only chroma on a page is the accent blue on links and the focus ring, and the photographs themselves. Dark mode is a true black ground with the same bands and the same rules, not a tint.\n\nMotion is restrained and has one grammar: elements fade and settle into place as they enter the viewport, images breathe by 3% on hover, the theme crossfades over 300ms. Every transition is disabled under reduced motion.",
+    "keyCharacteristics": [
+      "One type family (Figtree) at every size, from 0.75rem tags to a 5.5rem display; JetBrains Mono only inside code",
+      "Section structure by band alternation (white, grey, white), never by card or border",
+      "Hairline dividers only inside lists (post rows, timeline rows, code filename bar)",
+      "One accent colour, reserved for links and focus",
+      "18px rounded frames around every image; pill buttons and pill tags",
+      "Flat: no box shadows anywhere in the shipped UI",
+      "Reveal-on-enter motion, 3% hover zoom, 300ms theme crossfade, all gated by prefers-reduced-motion"
+    ],
+    "rules": [
+      { "name": "The One Accent Rule", "body": "Accent blue is spent only on links and the focus ring. Buttons are ink, not blue. If a surface needs emphasis, use weight, size or a band change, never a second colour.", "section": "colors" },
+      { "name": "The Ink Mix Rule", "body": "Every subtle fill is ink at a low opacity over transparent (7% at rest, 12% on hover, 8% for the theme toggle hover), so one token produces the right tint in both themes.", "section": "colors" },
+      { "name": "The Both Themes Rule", "body": "Light and dark are equal citizens. Every token has a dark pair under :root[data-theme='dark']; the theme is chosen before paint by the bootstrap script in app.html (stored preference, then system), and a toggle crossfades background-color, color and border-color over 300ms.", "section": "colors" },
+      { "name": "The One Family Rule", "body": "Figtree is the display face and the body face. No serif, no second sans, no system display face. JetBrains Mono appears only inside code, pre and kbd.", "section": "typography" },
+      { "name": "The No Eyebrow Rule", "body": "Headings stand alone. There are no kicker or eyebrow labels, no small-caps category lines above titles, and no uppercase tracked labels anywhere in the system. Metadata sits below the lede in Meta style.", "section": "typography" },
+      { "name": "The Band Not Border Rule", "body": "Where a region needs to read as distinct, change its ground to the band colour. Borders are not a sectioning device; hairlines are reserved for separating items inside one list.", "section": "elevation" },
+      { "name": "The No Card Rule", "body": "Content is never boxed. An album \"card\" is a frame, a heading and a line of text with no background, border or shadow; a post row is a hairline-separated grid row.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do structure a page as stacked sections and alternate the ground (white, band, white); let the band change be the only boundary.",
+      "Do put every image in a frame (1.125rem radius, band placeholder, declared aspect ratio) and wrap sections in Reveal so they settle in on entry.",
+      "Do set reading text in the 42rem prose container at the Prose size; keep ledes at 38rem, balanced and centered under a page-head title.",
+      "Do spend accent blue only on links and the focus ring; emphasise with weight, size or ground instead.",
+      "Do keep hairlines (hairline at 9% black / 14% white) to separating rows inside one list and the scrolled nav edge.",
+      "Do draw arrows and icons as inline SVG from the Icon component (24 viewBox, 1.75 stroke, currentColor).",
+      "Do give every token a dark pair and build fills with color-mix(ink N%, transparent) so both themes come for free.",
+      "Do honour prefers-reduced-motion: no reveal, no hover zoom, no button lift, no smooth scroll."
+    ],
+    "donts": [
+      "Don't use cards, boxes or bordered panels as page structure; no backgrounds, borders or shadows around content groups.",
+      "Don't add eyebrow, kicker or category labels above headings, and no uppercase tracked labels anywhere.",
+      "Don't introduce a second type family; Figtree does every role and JetBrains Mono stays inside code.",
+      "Don't paint box shadows; the system is flat and --shadow is unused.",
+      "Don't fill buttons with accent blue; buttons are ink (primary) or ink-7% (secondary).",
+      "Don't use Unicode glyphs (→, ›, ←) as arrows or icons.",
+      "Don't go beyond two columns for content grids below 61rem, or stack a third ground tone; there is paper, band and nothing else.",
+      "Don't draw a border above the footer or beneath section headings."
+    ]
+  }
+}

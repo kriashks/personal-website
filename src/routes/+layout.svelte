@@ -1,69 +1,61 @@
 <script lang="ts">
 	import { page } from '$app/state';
-
 	import Icon from '$lib/components/Icon.svelte';
+	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
 	import { NAV_LINKS } from '$lib/data/navigation';
 
 	import '../app.css';
 
-	let { children } = $props();
+	let { children, data } = $props();
 
-	const normalizePath = (path: string): string => {
-		if (path === '/') return '/';
-		return path.endsWith('/') ? path.slice(0, -1) : path;
-	};
+	let scrolled = $state(false);
+	const onscroll = () => (scrolled = window.scrollY > 8);
 
-	const isActive = (href: string): boolean => {
-		const current = normalizePath(page.url.pathname);
-		const target = normalizePath(href);
-
-		if (target === '/') {
-			return current === '/';
-		}
-
-		return current.startsWith(target);
-	};
+	const normalize = (p: string) => (p === '/' ? '/' : p.replace(/\/$/, ''));
+	const isActive = (href: string) => normalize(page.url.pathname).startsWith(normalize(href));
+	const year = new Date().getFullYear();
 </script>
+
+<svelte:window {onscroll} />
 
 <svelte:head>
 	<link rel="icon" href="/favicon.svg" />
 </svelte:head>
 
-<div class="app-root">
-	<div class="grid-overlay" aria-hidden="true"></div>
+<a href="#main" class="sr-only">Skip to content</a>
 
-	<header class="site-nav" aria-label="Main navigation">
-		<div class="nav-inner">
-			<a href="/" class="brand-link" aria-label="Home">
-				<Icon name="terminal" className="h-5 w-5" />
-				<span class="brand-label">adarsh.krishnan</span>
-			</a>
+<header class="site-nav" class:scrolled aria-label="Main navigation">
+	<div class="nav-inner">
+		<a href="/" class="brand" aria-label="Home">{data.settings.siteName}</a>
+		<ul class="nav-links">
+			{#each NAV_LINKS as link}
+				<li>
+					<a href={link.href} class="nav-link" aria-current={isActive(link.href) ? 'page' : undefined}>{link.label}</a>
+				</li>
+			{/each}
+			<li><ThemeToggle /></li>
+		</ul>
+	</div>
+</header>
 
-			<ul class="nav-list">
-				{#each NAV_LINKS as link}
-					<li>
-						<a
-							href={link.href}
-							class="nav-item"
-							class:active={isActive(link.href)}
-							aria-current={isActive(link.href) ? 'page' : undefined}
-						>
-							<Icon name={link.icon} className="nav-icon" />
-							<span class:nav-label-mobile={!!link.mobileLabel}>{link.label}</span>
-							{#if link.mobileLabel}
-								<span class="nav-label-short">{link.mobileLabel}</span>
-							{/if}
-							{#if isActive(link.href)}
-								<span class="nav-active-line" aria-hidden="true"></span>
-							{/if}
-						</a>
-					</li>
-				{/each}
-			</ul>
-		</div>
-	</header>
+<main id="main">
+	{@render children()}
+</main>
 
-	<main>
-		{@render children()}
-	</main>
-</div>
+<footer class="site-footer">
+	<div class="container footer-inner">
+		<p>&copy; {year} {data.settings.siteName}</p>
+		<ul class="footer-links">
+			{#each data.settings.social as s}
+				<li>
+					<a href={s.href} target={s.href.startsWith('http') ? '_blank' : undefined} rel={s.href.startsWith('http') ? 'noreferrer noopener' : undefined}>
+						<span class="inline-flex items-center gap-1.5"><Icon name={s.icon} className="h-3.5 w-3.5" />{s.label}</span>
+					</a>
+				</li>
+			{/each}
+		</ul>
+	</div>
+	{#if data.isSampleContent}
+		<p class="notice container" style="margin-top: 1.5rem;">Built with sample content. Photographs are placeholders.</p>
+	{/if}
+</footer>

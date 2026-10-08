@@ -1,73 +1,109 @@
 <script lang="ts">
-	import Icon from '$lib/components/Icon.svelte';
-	import { ABOUT_EXPERIENCE, ABOUT_FOCUS, ABOUT_SKILLS } from '$lib/data/about';
+	import Picture from '$lib/components/Picture.svelte';
+	import Reveal from '$lib/components/Reveal.svelte';
+	import RichText from '$lib/components/RichText.svelte';
+	import { SITE } from '$lib/site';
+
+	let { data } = $props();
+	const about = $derived(data.about);
 </script>
 
 <svelte:head>
-	<title>About | Adarsh Krishnan</title>
-	<meta name="description" content="About Adarsh Krishnan, based in London." />
-	<link rel="canonical" href="https://adarshkrishnan.com/about/" />
+	<title>About | {data.settings.siteName}</title>
+	<meta name="description" content={about?.tagline ?? `About ${data.settings.siteName}.`} />
+	<link rel="canonical" href={`${SITE.url}/about/`} />
 </svelte:head>
 
-<section class="page-shell">
-	<header class="mb-12 sm:mb-16">
-		<p class="terminal-command mb-4">$ cat about.md</p>
-		<h1 class="terminal-heading mb-4 text-4xl sm:text-5xl md:text-6xl">About Me</h1>
-		<p class="text-base text-gray-400 sm:text-lg">Developer, photographer, and analytics practitioner.</p>
-	</header>
-
-	<section class="mb-12 sm:mb-16" aria-labelledby="intro-heading">
-		<h2 id="intro-heading" class="sr-only">Introduction</h2>
-		<div class="terminal-card p-6 sm:p-8">
-			<p class="leading-relaxed text-gray-300">
-				I enjoy translating messy data into products and insights that teams can use immediately.
-				Most of my day-to-day work sits at the intersection of experimentation, analytics strategy, and
-				automation.
-			</p>
-			<p class="mt-4 leading-relaxed text-gray-300">
-				This site is where I publish practical lessons from shipping data work and archive photography
-				projects from outside of work.
-			</p>
-		</div>
+{#if !about}
+	<section class="page-head container">
+		<h1 class="title-1">About</h1>
+		<p class="lede">This page has not been written yet.</p>
+	</section>
+{:else}
+	<section class="page-head container">
+		<h1 class="title-1">{about.heading}</h1>
+		{#if about.tagline}<p class="lede">{about.tagline}</p>{/if}
 	</section>
 
-	<section class="mb-12 sm:mb-16" aria-labelledby="focus-heading">
-		<h2 id="focus-heading" class="mb-6 font-mono text-2xl text-white sm:text-3xl">What I Do</h2>
-		<div class="grid gap-4 sm:grid-cols-3 sm:gap-6">
-			{#each ABOUT_FOCUS as item}
-				<article class="terminal-card p-6">
-					<Icon name={item.icon} className="mb-4 h-9 w-9 text-green-400" />
-					<h3 class="mb-2 font-mono text-lg text-green-400 sm:text-xl">{item.title}</h3>
-					<p class="text-sm text-gray-400 sm:text-base">{item.description}</p>
-				</article>
-			{/each}
-		</div>
-	</section>
+	{#if about.portrait}
+		<section class="container pb-12">
+			<Reveal>
+				<div class="frame mx-auto" style="max-width: 36rem; aspect-ratio: 4 / 5;">
+					<Picture image={about.portrait} alt={about.portrait.alt ?? about.heading} ratio={4 / 5} sizes="(min-width: 40rem) 36rem, 100vw" priority />
+				</div>
+			</Reveal>
+		</section>
+	{/if}
 
-	<section class="mb-12 sm:mb-16" aria-labelledby="skills-heading">
-		<h2 id="skills-heading" class="mb-6 font-mono text-2xl text-white sm:text-3xl">Skills & Technologies</h2>
-		<div class="flex flex-wrap gap-3" role="list" aria-label="Skills and technologies">
-			{#each ABOUT_SKILLS as skill}
-				<span class="terminal-tag text-sm sm:text-base" role="listitem">{skill}</span>
-			{/each}
-		</div>
-	</section>
+	{#if about.intro.length}
+		<section class="container-prose pb-16">
+			<Reveal><RichText value={about.intro} class="prose" /></Reveal>
+		</section>
+	{/if}
 
-	<section aria-labelledby="experience-heading">
-		<h2 id="experience-heading" class="mb-6 font-mono text-2xl text-white sm:text-3xl">Experience</h2>
-		<div class="space-y-5">
-			{#each ABOUT_EXPERIENCE as role}
-				<article class="terminal-card p-6 sm:p-8">
-					<div class="mb-3 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-						<div>
-							<h3 class="font-mono text-lg text-white sm:text-xl">{role.title}</h3>
-							<p class="font-mono text-sm text-green-400 sm:text-base">{role.company}</p>
-						</div>
-						<span class="font-mono text-xs text-gray-500 sm:text-sm">{role.period}</span>
-					</div>
-					<p class="text-sm text-gray-400 sm:text-base">{role.description}</p>
-				</article>
-			{/each}
-		</div>
-	</section>
-</section>
+	{#if about.focus.length}
+		<section class="section band">
+			<div class="container">
+				<Reveal><h2 class="title-2">What I do</h2></Reveal>
+				<div class="about-grid mt-10">
+					{#each about.focus as item, i}
+						<Reveal delay={i * 70}>
+							<div class="about-item">
+								<h3>{item.title}</h3>
+								{#if item.description}<p>{item.description}</p>{/if}
+							</div>
+						</Reveal>
+					{/each}
+				</div>
+			</div>
+		</section>
+	{/if}
+
+	{#if about.experience.length || about.education.length}
+		<section class="section">
+			<div class="container">
+				{#if about.experience.length}
+					<Reveal><h2 class="title-2">Experience</h2></Reveal>
+					<ul class="timeline mt-8">
+						{#each about.experience as role, i}
+							<Reveal delay={i * 50}>
+								<li>
+									<span class="period">{role.period}</span>
+									<div>
+										<h3>{role.title}{role.company ? `, ${role.company}` : ''}</h3>
+										{#if role.description}<p>{role.description}</p>{/if}
+									</div>
+								</li>
+							</Reveal>
+						{/each}
+					</ul>
+				{/if}
+				{#if about.education.length}
+					<Reveal><h2 class="title-2 mt-20">Education</h2></Reveal>
+					<ul class="timeline mt-8">
+						{#each about.education as item}
+							<li>
+								<span class="period">{item.year}</span>
+								<div>
+									<h3>{item.degree}</h3>
+									{#if item.institution}<p class="org">{item.institution}</p>{/if}
+								</div>
+							</li>
+						{/each}
+					</ul>
+				{/if}
+			</div>
+		</section>
+	{/if}
+
+	{#if about.skills.length}
+		<section class="section-tight">
+			<div class="container">
+				<Reveal><h2 class="title-3">Skills</h2></Reveal>
+				<ul class="chips mt-5 list-none p-0 m-0" aria-label="Skills">
+					{#each about.skills as skill}<li class="tag">{skill}</li>{/each}
+				</ul>
+			</div>
+		</section>
+	{/if}
+{/if}

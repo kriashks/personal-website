@@ -1,77 +1,94 @@
 <script lang="ts">
 	import Icon from '$lib/components/Icon.svelte';
-	import { SOCIAL_LINKS } from '$lib/site';
+	import Picture from '$lib/components/Picture.svelte';
+	import Reveal from '$lib/components/Reveal.svelte';
+	import { SITE } from '$lib/site';
+	import { formatDate } from '$lib/utils/date';
 
 	let { data } = $props();
-
-	const latestPost = $derived(data.latestPosts[0] ?? null);
-	const latestPostHref = $derived(latestPost ? `/blog/${latestPost.slug}/` : '/blog/');
+	const s = $derived(data.settings);
 </script>
 
 <svelte:head>
-	<title>Adarsh Krishnan</title>
-	<meta
-		name="description"
-		content="Adarsh Krishnan's work on analytics, experimentation, and practical data systems."
-	/>
-	<link rel="canonical" href="https://adarshkrishnan.com/" />
+	<title>{s.siteName}</title>
+	<meta name="description" content={s.description} />
+	<link rel="canonical" href={`${SITE.url}/`} />
+	<meta property="og:title" content={s.siteName} />
+	<meta property="og:description" content={s.description} />
 </svelte:head>
 
-<section class="page-shell">
-	<header class="mb-16 sm:mb-20">
-		<p class="terminal-command mb-4">$ whoami</p>
-		<h1 class="terminal-heading mb-5 text-5xl sm:text-6xl lg:text-7xl">Adarsh Krishnan</h1>
-		<p class="typing-line mb-7">
-			<span class="typing-prompt text-gray-500">&gt;</span><span>developer. writer. photographer.</span>
-		</p>
-		<p class="max-w-3xl text-base leading-relaxed text-gray-400 sm:text-lg">
-			Welcome to my corner of the internet. I build practical data systems, write about product and
-			analytics, and document visual stories from everyday travel.
-		</p>
-		<div class="mt-7 flex flex-wrap gap-3" aria-label="Social links">
-			{#each SOCIAL_LINKS as social}
-				<a
-					href={social.href}
-					class="social-button"
-					target={social.external ? '_blank' : undefined}
-					rel={social.external ? 'noreferrer noopener' : undefined}
-					aria-label={social.label}
-				>
-					<Icon name={social.icon} className="h-5 w-5" />
-				</a>
-			{/each}
-		</div>
-	</header>
-
-	<div class="grid gap-5 md:grid-cols-2">
-		<a href={latestPostHref} class="terminal-card group p-7">
-			<div class="mb-4 flex items-center justify-between gap-3">
-				<h2 class="text-xl font-medium text-green-400 sm:text-2xl font-mono">Latest Thoughts</h2>
-				<Icon
-					name="arrow-right"
-					className="h-5 w-5 text-green-400 transition-transform duration-200 group-hover:translate-x-1"
-				/>
-			</div>
-			<p class="text-gray-400">
-				Exploring experimentation, analytics implementation, and practical software decisions.
-			</p>
-			{#if latestPost}
-				<p class="mt-4 text-sm font-mono text-green-300/80 line-clamp-3">Latest: {latestPost.title}</p>
-			{/if}
-		</a>
-
-		<a href="/photography/" class="terminal-card group p-7">
-			<div class="mb-4 flex items-center justify-between gap-3">
-				<h2 class="text-xl font-medium text-green-400 sm:text-2xl font-mono">Visual Stories</h2>
-				<Icon
-					name="arrow-right"
-					className="h-5 w-5 text-green-400 transition-transform duration-200 group-hover:translate-x-1"
-				/>
-			</div>
-			<p class="text-gray-400">
-				A curated photography archive covering cities, landscapes, and wildlife captured through my
-				lens.
-			</p>
-		</a>
+<section class="page-head container">
+	<h1 class="display">{s.heroHeading || s.siteName}</h1>
+	{#if s.heroSubheading}
+		<p class="lede">{s.heroSubheading}</p>
+	{/if}
+	<div class="mt-7 flex flex-wrap items-center justify-center gap-3">
+		<a href="/blog/" class="btn btn-primary">Read the blog</a>
+		<a href="/photography/" class="btn btn-secondary">See the photographs</a>
 	</div>
 </section>
+
+{#if s.heroImage}
+	<section class="container-wide pb-16 md:pb-24">
+		<Reveal>
+			<div class="frame" style="aspect-ratio: 16 / 9;">
+				<Picture image={s.heroImage} ratio={16 / 9} sizes="(min-width: 90rem) 86rem, 100vw" priority />
+			</div>
+		</Reveal>
+	</section>
+{/if}
+
+{#if data.latestPosts.length}
+	<section class="section band">
+		<div class="container-prose">
+			<Reveal>
+				<div class="flex items-end justify-between gap-4">
+					<h2 class="title-2">Latest writing</h2>
+					<a href="/blog/" class="link link-arrow whitespace-nowrap">All posts<Icon name="chevron-right" /></a>
+				</div>
+			</Reveal>
+			<ul class="post-list mt-4">
+				{#each data.latestPosts as post, i}
+					<li>
+						<Reveal delay={i * 60}>
+							<article class="post-row">
+								<time class="meta numeric" datetime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
+								<div>
+									<h2><a href={`/blog/${post.slug}/`}>{post.title}</a></h2>
+									<p class="summary">{post.summary}</p>
+									<p class="meta mt-3">{post.readTime}</p>
+								</div>
+							</article>
+						</Reveal>
+					</li>
+				{/each}
+			</ul>
+		</div>
+	</section>
+{/if}
+
+{#if data.featuredAlbums.length}
+	<section class="section">
+		<div class="container-wide">
+			<Reveal>
+				<div class="flex items-end justify-between gap-4">
+					<h2 class="title-2">Photography</h2>
+					<a href="/photography/" class="link link-arrow whitespace-nowrap">All albums<Icon name="chevron-right" /></a>
+				</div>
+			</Reveal>
+			<div class="album-grid mt-8">
+				{#each data.featuredAlbums as album, i}
+					<Reveal delay={i * 80}>
+						<a href={`/photography/${album.slug}/`} class="album-card">
+							<div class="frame frame-hover">
+								<Picture image={album.cover} alt={album.cover?.alt ?? album.title} ratio={4 / 3} sizes="(min-width: 40rem) 50vw, 100vw" />
+							</div>
+							<h2>{album.title}</h2>
+							<p>{album.photoCount} photographs{album.description ? ` · ${album.description}` : ''}</p>
+						</a>
+					</Reveal>
+				{/each}
+			</div>
+		</div>
+	</section>
+{/if}

@@ -7,20 +7,14 @@
 
 <svelte:head>
 	<title>{status} | Adarsh Krishnan</title>
-	<meta name="description" content="Page not found" />
-	<link rel="canonical" href="https://adarshkrishnan.com/404/" />
+	<meta name="robots" content="noindex" />
 </svelte:head>
 
-<section class="page-shell">
-	<article class="terminal-card max-w-3xl p-7 sm:p-9">
-		<p class="terminal-command mb-4">$ status {status}</p>
-		<h1 class="terminal-heading mb-3 text-3xl sm:text-4xl">
-			{status === 404 ? 'Page not found' : 'Unexpected error'}
-		</h1>
-		<p class="text-gray-400">{message}</p>
-		<div class="mt-6 flex flex-wrap gap-3">
-			<a href="/" class="terminal-tag">Back to Home</a>
-			<a href="/blog/" class="terminal-tag">Go to Blog</a>
-		</div>
-	</article>
+<section class="page-head container" style="padding-bottom: 8rem;">
+	<h1 class="title-1">{status === 404 ? 'Page not found' : 'Something went wrong'}</h1>
+	<p class="lede">{status === 404 ? 'That page has moved or never existed.' : message}</p>
+	<div class="mt-7 flex flex-wrap justify-center gap-3">
+		<a href="/" class="btn btn-primary">Go home</a>
+		<a href="/blog/" class="btn btn-secondary">Read the blog</a>
+	</div>
 </section>

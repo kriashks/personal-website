@@ -1,58 +1,46 @@
-# Adarsh Krishnan - Personal Website
+# adarshkrishnan.com
 
-Personal site built with **SvelteKit 2 + Svelte 5** and a custom terminal-inspired design system.
+Personal website: writing and photography. SvelteKit, prerendered to GitHub Pages, content in Sanity.
 
-- Framework: SvelteKit (static prerender)
-- Styling: Tailwind CSS v4 + custom CSS tokens/components
-- Content source for blog posts: `content/blog/*.md`
-- Deployed to GitHub Pages via `.github/workflows/gh-pages.yml`
-
-## Local development
+## Run locally
 
 ```bash
 npm install
+cp .env.example .env
 npm run dev -- --open
 ```
 
-## Build
+`.env.example` sets `PUBLIC_SANITY_SAMPLE=1`, which builds with bundled sample content (placeholder photographs). Set it to `0` to build from Sanity.
+
+## Content
+
+Content is edited in Sanity Studio (`studio-personal-website/`):
 
 ```bash
-npm run build
-npm run preview
+cd studio-personal-website
+npm install
+npm run dev        # http://localhost:3333
 ```
 
-Static output is generated in `build/`.
+Document types: Site settings, About page, Blog posts, Photo albums (each with photos and EXIF fields).
 
-## Blog authoring
+### First-time setup
 
-Blog posts are markdown files in:
+1. `npx sanity login` with the account that owns project `xsttrmdn`.
+2. In [sanity.io/manage](https://www.sanity.io/manage) create an **Editor** API token and put it in `.env` as `SANITY_WRITE_TOKEN`.
+3. `node scripts/seed-sanity.mjs` pushes site settings, the about page and the posts from `content/blog/` into the dataset.
+4. Add albums and photos in the Studio.
+5. `cd studio-personal-website && npm run deploy` redeploys the Studio at https://adarshkrishnan.sanity.studio.
 
-- `content/blog/*.md`
+### Rebuild on publish
 
-Create a new post from template:
+The GitHub Actions workflow listens for `repository_dispatch` events of type `sanity-publish`.
 
-```bash
-npm run blog:new -- --title "Your Post Title"
-```
+1. Create a GitHub fine-grained personal access token with **Contents: read and write** on this repo.
+2. In Sanity manage, add a webhook: URL `https://api.github.com/repos/<owner>/<repo>/dispatches`, method `POST`, trigger on create/update/delete, HTTP headers `Authorization: Bearer <token>`, `Accept: application/vnd.github+json`, and body `{"event_type":"sanity-publish"}` (projection: `{"event_type":"sanity-publish"}`).
 
-Optional args:
+Every publish in the Studio then rebuilds and redeploys the site.
 
-- `--summary "One line summary"`
-- `--slug "custom-slug"`
-- `--date YYYY-MM-DD`
+## Deploy
 
-Template used by the scaffold command:
-
-- `templates/blog-post.md`
-
-## Site structure
-
-- `src/routes/` - all pages and route handlers
-- `src/lib/server/blog.ts` - markdown loader/parser for blog posts
-- `src/lib/data/` - reusable data models for nav/about/photography content
-- `src/app.css` - global styles and terminal design tokens
-- `src/routes/sitemap.xml/+server.ts` - sitemap generation
-
-## Deployment
-
-GitHub Actions workflow builds the site and publishes static output to GitHub Pages on push to `main`.
+Push to `main`. The workflow builds with `PUBLIC_SANITY_PROJECT_ID` and `PUBLIC_SANITY_DATASET` from repository variables (defaults to `xsttrmdn` / `production`).
