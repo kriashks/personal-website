@@ -16,6 +16,10 @@ Design: light-first with an equal dark mode, Figtree type, white and soft grey b
 - Content: Sanity (project `xsttrmdn`, dataset `production`), queried with GROQ via `@sanity/client` on the server only
 - Rich text: Portable Text rendered with `@portabletext/svelte`
 
+## Workflow Rules
+
+- Commit the repo changes at the end of every completed task unless the user explicitly says not to commit.
+
 ## Key Commands
 
 ```bash
@@ -49,7 +53,7 @@ node scripts/seed-sanity.mjs
 - `src/lib/components/` - `Picture`, `Reveal`, `RichText` (+ `pt/` block renderers), `Lightbox`, `ThemeToggle`, `Icon`
 - `src/app.css` - tokens (`:root` and `[data-theme='dark']`), layout, type, components
 - `src/app.html` - inline theme script (reads `localStorage.theme`, falls back to system)
-- `studio-personal-website/schemaTypes/` - `siteSettings`, `aboutPage`, `post`, `album`, `photo`, `blockContent`
+- `studio-personal-website/schemaTypes/` - `siteSettings`, `aboutPage`, `post` (with optional `updatedAt`), `album`, `photo`, `blockContent`
 - `scripts/seed-sanity.mjs` - migrates `content/blog/*.md` plus settings and about copy into Sanity
 - `.github/workflows/gh-pages.yml` - builds on push to `main` and on `repository_dispatch` type `sanity-publish`
 

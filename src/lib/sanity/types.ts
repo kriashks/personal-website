@@ -38,6 +38,7 @@ export interface PostPreview {
 	slug: string;
 	title: string;
 	publishedAt: string;
+	updatedAt?: string;
 	summary: string;
 	tags: string[];
 	readTime: string;

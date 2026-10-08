@@ -7,7 +7,7 @@ export const settingsQuery = `*[_id == "siteSettings"][0]{
 }`;
 
 export const postPreviewFields = `
-	"slug": slug.current, title, publishedAt, summary, "tags": coalesce(tags, []),
+	"slug": slug.current, title, publishedAt, updatedAt, summary, "tags": coalesce(tags, []),
 	coverImage ${image},
 	"plain": pt::text(body)
 `;

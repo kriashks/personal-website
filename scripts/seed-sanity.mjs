@@ -146,13 +146,16 @@ const blogDir = path.join(process.cwd(), 'content', 'blog');
 for (const file of (await fs.readdir(blogDir)).filter((f) => f.endsWith('.md'))) {
 	const { data, content } = matter(await fs.readFile(path.join(blogDir, file), 'utf8'));
 	const slug = data.slug ?? file.replace(/\.md$/, '');
-	const date = data.date instanceof Date ? data.date.toISOString().slice(0, 10) : String(data.date);
+	const toDate = (v) => (v instanceof Date ? v.toISOString().slice(0, 10) : v ? String(v) : undefined);
+	const date = toDate(data.date);
+	const lastmod = toDate(data.lastmod);
 	docs.push({
 		_id: `post-${slug}`,
 		_type: 'post',
 		title: data.title,
 		slug: { _type: 'slug', current: slug },
 		publishedAt: date,
+		...(lastmod ? { updatedAt: lastmod } : {}),
 		summary: data.summary ?? '',
 		tags: Array.isArray(data.tags) ? data.tags : [],
 		body: markdownToBlocks(content)

@@ -1,8 +1,9 @@
 ---
-title: How to master Streamlit for Data Science
-date: 2024-01-05
-slug: how-to-master-streamlit-for-data-science
-summary: A concise learning path for shipping useful Streamlit apps quickly.
+title: How to use Streamlit for interactive Data Visualisations?
+date: 2026-01-15
+lastmod: 2026-01-15
+slug: how-to-use-streamlit-for-interactive-data-visualisations
+summary: A concise introduction to using Streamlit for building interactive data visualizations in Python.
 ---
 
 Streamlit is a lightweight framework that makes it easy to build interactive data apps using Python.

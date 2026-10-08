@@ -13,6 +13,7 @@ export const post = defineType({
       validation: (r) => r.required(),
     }),
     defineField({name: 'publishedAt', title: 'Published on', type: 'date', validation: (r) => r.required()}),
+    defineField({name: 'updatedAt', title: 'Last updated', type: 'date', description: 'Optional. Shown as "Updated" when later than the publish date.'}),
     defineField({
       name: 'summary',
       type: 'text',

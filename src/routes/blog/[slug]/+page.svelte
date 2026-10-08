@@ -20,6 +20,7 @@
 	<meta property="og:description" content={post.summary} />
 	{#if post.coverImage}<meta property="og:image" content={srcFor(post.coverImage, 1200, 630)} />{/if}
 	<meta property="article:published_time" content={post.publishedAt} />
+	{#if post.updatedAt}<meta property="article:modified_time" content={post.updatedAt} />{/if}
 </svelte:head>
 
 <article>
@@ -27,7 +28,11 @@
 		<h1 class="title-1">{post.title}</h1>
 		<p class="lede">{post.summary}</p>
 		<p class="meta numeric mt-5">
-			<time datetime={post.publishedAt}>{formatDate(post.publishedAt)}</time> · {post.readTime}
+			<time datetime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
+			{#if post.updatedAt && post.updatedAt > post.publishedAt}
+				· Updated <time datetime={post.updatedAt}>{formatDate(post.updatedAt)}</time>
+			{/if}
+			· {post.readTime}
 		</p>
 	</header>
 
@@ -51,3 +56,28 @@
 		<p class="mt-12"><a href="/blog/" class="link link-arrow link-back"><Icon name="arrow-left" />All posts</a></p>
 	</div>
 </article>
+
+{#if data.olderPosts.length}
+	<section class="section band">
+		<div class="container-prose">
+			<div class="flex items-end justify-between gap-4">
+				<h2 class="title-2">More writing</h2>
+				<a href="/blog/" class="link link-arrow whitespace-nowrap">All posts<Icon name="chevron-right" /></a>
+			</div>
+			<ul class="post-list mt-4">
+				{#each data.olderPosts as older}
+					<li>
+						<article class="post-row">
+							<time class="meta numeric" datetime={older.publishedAt}>{formatDate(older.publishedAt)}</time>
+							<div>
+								<h2><a href={`/blog/${older.slug}/`}>{older.title}</a></h2>
+								<p class="summary">{older.summary}</p>
+								<p class="meta mt-3">{older.readTime}</p>
+							</div>
+						</article>
+					</li>
+				{/each}
+			</ul>
+		</div>
+	</section>
+{/if}

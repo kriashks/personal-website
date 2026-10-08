@@ -45,11 +45,12 @@ export const SAMPLE_SETTINGS: SiteSettings = {
 
 export const SAMPLE_POSTS: Post[] = [
 	{
-		slug: 'what-is-bioinformatics',
-		title: 'What Is Bioinformatics',
-		publishedAt: '2024-02-12',
-		summary: 'A short introduction to where biology and computing intersect.',
-		tags: ['Biology', 'Computing'],
+		slug: 'install-linux-instead-windows',
+		title: 'Should you install Linux instead of Windows?',
+		publishedAt: '2026-03-07',
+		updatedAt: '2026-03-07',
+		summary: 'Musings on choosing Linux instead of Windows.',
+		tags: ['Linux', 'Opinion'],
 		readTime: '1 min read',
 		coverImage: null,
 		body: [
@@ -65,10 +66,11 @@ export const SAMPLE_POSTS: Post[] = [
 		]
 	},
 	{
-		slug: 'how-to-master-streamlit-for-data-science',
-		title: 'How to master Streamlit for Data Science',
-		publishedAt: '2024-01-05',
-		summary: 'A concise learning path for shipping useful Streamlit apps quickly.',
+		slug: 'how-to-use-streamlit-for-interactive-data-visualisations',
+		title: 'How to use Streamlit for interactive Data Visualisations?',
+		publishedAt: '2026-01-15',
+		updatedAt: '2026-01-15',
+		summary: 'A concise introduction to using Streamlit for building interactive data visualizations in Python.',
 		tags: ['Python', 'Streamlit'],
 		readTime: '1 min read',
 		coverImage: unsplash('photo-1551288049-bebda4e38f71', 2000, 1333, 'Sample placeholder: a dashboard on a laptop screen'),

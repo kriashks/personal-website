@@ -1,8 +1,9 @@
 ---
-title: What Is Bioinformatics
-date: 2024-02-12
-slug: what-is-bioinformatics
-summary: A short introduction to where biology and computing intersect.
+title: Should you install Linux instead of Windows?
+date: 2026-03-07
+lastmod: 2026-03-07
+slug: install-linux-instead-windows
+summary: Musings on choosing Linux instead of Windows.
 ---
 
 Bioinformatics combines biology and computing to analyze biological data such as sequences, expression data, and protein structures.
