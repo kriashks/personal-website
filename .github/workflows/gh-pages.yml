@@ -51,3 +51,29 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  share-linkedin:
+    # Posts any blog post flagged "Share on LinkedIn" that has not been shared yet.
+    # Runs after the deploy so the article URL resolves when LinkedIn fetches it.
+    needs: deploy
+    if: github.ref == 'refs/heads/main' || github.event_name == 'repository_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Share flagged posts
+        env:
+          PUBLIC_SANITY_PROJECT_ID: ${{ vars.PUBLIC_SANITY_PROJECT_ID || 'xsttrmdn' }}
+          PUBLIC_SANITY_DATASET: ${{ vars.PUBLIC_SANITY_DATASET || 'production' }}
+          SANITY_WRITE_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+        run: |
+          if [ -z "$LINKEDIN_ACCESS_TOKEN" ] || [ -z "$SANITY_WRITE_TOKEN" ]; then
+            echo "LinkedIn sharing not configured (LINKEDIN_ACCESS_TOKEN / SANITY_WRITE_TOKEN secrets missing); skipping."
+            exit 0
+          fi
+          node scripts/share-linkedin.mjs

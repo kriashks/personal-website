@@ -41,6 +41,27 @@ The GitHub Actions workflow listens for `repository_dispatch` events of type `sa
 
 Every publish in the Studio then rebuilds and redeploys the site.
 
+## Share new posts on LinkedIn
+
+Each post has a "Share on LinkedIn" toggle and an optional post text in the Studio. After every deploy, the `share-linkedin` workflow job posts any flagged post that has not been shared yet, then stamps "Shared at" on it so it never goes out twice. Clear "Shared at" to share again.
+
+One-time setup:
+
+1. Create a free app at https://www.linkedin.com/developers/apps. Under Products add **Share on LinkedIn** and **Sign In with LinkedIn using OpenID Connect**. Under Auth add `http://localhost:8765/callback` as a redirect URL.
+2. Mint a token with a web login (tokens last about 60 days; rerun this when the job reports a 401):
+
+```bash
+LINKEDIN_CLIENT_ID=... LINKEDIN_CLIENT_SECRET=... node scripts/linkedin-auth.mjs
+```
+
+3. Add two repository secrets under Settings > Secrets and variables > Actions: `LINKEDIN_ACCESS_TOKEN` (from step 2) and `SANITY_WRITE_TOKEN` (an Editor token from sanity.io/manage, used to stamp "Shared at").
+
+Without those secrets the job skips quietly. Test locally without posting:
+
+```bash
+DRY_RUN=1 node scripts/share-linkedin.mjs
+```
+
 ## Deploy
 
 Push to `main`. The workflow builds with `PUBLIC_SANITY_PROJECT_ID` and `PUBLIC_SANITY_DATASET` from repository variables (defaults to `xsttrmdn` / `production`).

@@ -30,6 +30,37 @@ export const post = defineType({
       description: 'Optional. Shown large at the top of the post.',
     }),
     defineField({name: 'body', type: 'blockContent', validation: (r) => r.required()}),
+    defineField({
+      name: 'linkedin',
+      title: 'LinkedIn',
+      type: 'object',
+      options: {collapsible: true, collapsed: true},
+      fields: [
+        defineField({
+          name: 'share',
+          title: 'Share on LinkedIn',
+          type: 'boolean',
+          initialValue: false,
+          description: 'When on, the next site deploy posts this article to LinkedIn once.',
+        }),
+        defineField({
+          name: 'message',
+          title: 'Post text',
+          type: 'text',
+          rows: 4,
+          description: 'Optional. Defaults to the title and summary. The article link is added automatically.',
+          validation: (r) => r.max(1200),
+        }),
+        defineField({
+          name: 'sharedAt',
+          title: 'Shared at',
+          type: 'datetime',
+          readOnly: true,
+          description: 'Set automatically after the post goes out. Clear it to share again.',
+        }),
+        defineField({name: 'postUrn', title: 'LinkedIn post id', type: 'string', readOnly: true, hidden: ({parent}) => !parent?.postUrn}),
+      ],
+    }),
   ],
   orderings: [{title: 'Newest first', name: 'publishedAtDesc', by: [{field: 'publishedAt', direction: 'desc'}]}],
   preview: {
