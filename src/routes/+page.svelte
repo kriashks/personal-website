@@ -2,6 +2,7 @@
 	import Icon from '$lib/components/Icon.svelte';
 	import Picture from '$lib/components/Picture.svelte';
 	import Reveal from '$lib/components/Reveal.svelte';
+	import { srcFor } from '$lib/sanity/image';
 	import { SITE } from '$lib/site';
 	import { formatDate } from '$lib/utils/date';
 
@@ -15,6 +16,10 @@
 	<link rel="canonical" href={`${SITE.url}/`} />
 	<meta property="og:title" content={s.siteName} />
 	<meta property="og:description" content={s.description} />
+	{#if s.heroImage}
+		<meta property="og:image" content={srcFor(s.heroImage, 1200, 630)} />
+	{/if}
+	<meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
 
 <section class="page-head container">

@@ -28,7 +28,7 @@ Document types: Site settings, About page, Blog posts, Photo albums (each with p
 
 1. `npx sanity login` with the account that owns project `xsttrmdn`.
 2. In [sanity.io/manage](https://www.sanity.io/manage) create an **Editor** API token and put it in `.env` as `SANITY_WRITE_TOKEN`.
-3. `node scripts/seed-sanity.mjs` pushes site settings, the about page and the posts from `content/blog/` into the dataset.
+3. The dataset was seeded on 2026-10-08. `scripts/seed-sanity.mjs` remains as a reference for bulk imports (it reads markdown from `content/blog/`, which has since been removed).
 4. Add albums and photos in the Studio.
 5. `cd studio-personal-website && npm run deploy` redeploys the Studio at https://adarshkrishnan.sanity.studio.
 

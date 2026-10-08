@@ -10,10 +10,38 @@
 	const prev = () => (index = (index - 1 + photos.length) % photos.length);
 	const next = () => (index = (index + 1) % photos.length);
 
+	// Preload the neighbouring photos so arrow navigation feels instant.
+	$effect(() => {
+		if (photos.length <= 1) return;
+		const neighbours = [photos[(index - 1 + photos.length) % photos.length], photos[(index + 1) % photos.length]];
+		for (const p of neighbours) {
+			const img = new Image();
+			img.src = srcFor(p.image, 1920);
+		}
+	});
+
+	const FOCUSABLE = 'button, [href], [tabindex]:not([tabindex="-1"])';
+	let dialog: HTMLDivElement;
+
 	function onkeydown(e: KeyboardEvent) {
 		if (e.key === 'Escape') onclose();
 		else if (e.key === 'ArrowLeft') prev();
 		else if (e.key === 'ArrowRight') next();
+		else if (e.key === 'Tab' && dialog) {
+			// Keep keyboard focus cycling inside the dialog.
+			const items = Array.from(dialog.querySelectorAll<HTMLElement>(FOCUSABLE));
+			if (!items.length) return;
+			const first = items[0];
+			const last = items[items.length - 1];
+			const i = items.indexOf(document.activeElement as HTMLElement);
+			if (e.shiftKey && i <= 0) {
+				e.preventDefault();
+				last.focus();
+			} else if (!e.shiftKey && (i === -1 || i === items.length - 1)) {
+				e.preventDefault();
+				first.focus();
+			}
+		}
 	}
 
 	let touchX = 0;
@@ -25,11 +53,14 @@
 
 	let closeBtn: HTMLButtonElement;
 	onMount(() => {
+		// Remember the element that opened the lightbox so focus can return to it on close.
+		const returnFocus = document.activeElement as HTMLElement | null;
 		const prevOverflow = document.body.style.overflow;
 		document.body.style.overflow = 'hidden';
 		closeBtn?.focus();
 		return () => {
 			document.body.style.overflow = prevOverflow;
+			returnFocus?.focus();
 		};
 	});
 
@@ -46,9 +77,9 @@
 
 <svelte:window {onkeydown} />
 
-<div class="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-title" tabindex="-1" {ontouchstart} {ontouchend}>
+<div bind:this={dialog} class="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-title" tabindex="-1" {ontouchstart} {ontouchend}>
 	<div class="lightbox-bar">
-		<span class="numeric">{index + 1} of {photos.length}</span>
+		<span class="numeric" aria-live="polite">{index + 1} of {photos.length}</span>
 		<button type="button" class="lightbox-btn" onclick={onclose} aria-label="Close" bind:this={closeBtn}>
 			<Icon name="close" className="h-4 w-4" />
 		</button>

@@ -13,7 +13,7 @@ Design: light-first with an equal dark mode, Figtree type, white and soft grey b
 
 - Package manager: `npm`
 - Framework: SvelteKit (TypeScript), Tailwind v4 utilities plus hand-written CSS in `src/app.css`
-- Content: Sanity (project `xsttrmdn`, dataset `production`), queried with GROQ via `@sanity/client` on the server only
+- Content: Sanity (project `xsttrmdn`, dataset `production`), queried with GROQ via `@sanity/client` on the server only. Studio is hosted at https://adarshkrishnan.sanity.studio
 - Rich text: Portable Text rendered with `@portabletext/svelte`
 
 ## Workflow Rules
@@ -54,7 +54,7 @@ node scripts/seed-sanity.mjs
 - `src/app.css` - tokens (`:root` and `[data-theme='dark']`), layout, type, components
 - `src/app.html` - inline theme script (reads `localStorage.theme`, falls back to system)
 - `studio-personal-website/schemaTypes/` - `siteSettings`, `aboutPage`, `post` (with optional `updatedAt`), `album`, `photo`, `blockContent`
-- `scripts/seed-sanity.mjs` - migrates `content/blog/*.md` plus settings and about copy into Sanity
+- `scripts/seed-sanity.mjs` - one-time seed (already run); kept as a reference for bulk imports
 - `.github/workflows/gh-pages.yml` - builds on push to `main` and on `repository_dispatch` type `sanity-publish`
 
 ## Conventions

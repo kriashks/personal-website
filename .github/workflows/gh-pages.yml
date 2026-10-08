@@ -1,109 +1,53 @@
 name: Build & deploy website
+
 on:
   push:
     branches: [main]
   repository_dispatch:
     types: [sanity-publish]
   workflow_dispatch:
-    inputs:
-      output_dir:
-        description: "Build output directory (dist | build | out | public)"
-        default: "public"
-        required: false
+
+permissions:
+  contents: read
 
 jobs:
-# ------------------------------------------------------
-# 1. Build once – outputs ./public as an artefact
-# ------------------------------------------------------
   build:
     runs-on: ubuntu-latest
-    outputs:
-      publish-dir: ${{ steps.upload.outputs.artifact-path }}
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
-          node-version: "20"
+          node-version: 24
+          cache: npm
 
-      - name: Build site
+      - name: Install and build
         env:
-          OUTPUT_DIR: ${{ github.event.inputs.output_dir || 'public' }}
           PUBLIC_SANITY_PROJECT_ID: ${{ vars.PUBLIC_SANITY_PROJECT_ID || 'xsttrmdn' }}
           PUBLIC_SANITY_DATASET: ${{ vars.PUBLIC_SANITY_DATASET || 'production' }}
           PUBLIC_SANITY_SAMPLE: ${{ vars.PUBLIC_SANITY_SAMPLE || '0' }}
         run: |
-          set -euo pipefail
+          npm ci
+          npm run build
+          echo "adarshkrishnan.com" > build/CNAME
 
-          if [ -f package.json ]; then
-            if [ -f package-lock.json ]; then
-              npm ci
-            else
-              npm install
-            fi
-            npm run build
-          fi
-
-          if [ "${OUTPUT_DIR}" != "public" ]; then
-            if [ ! -d "${OUTPUT_DIR}" ]; then
-              echo "Configured output_dir '${OUTPUT_DIR}' does not exist."
-              exit 1
-            fi
-            rm -rf public
-            mkdir -p public
-            rsync -a "${OUTPUT_DIR}/" public/
-          fi
-
-          if [ "${OUTPUT_DIR}" = "public" ] && [ ! -f public/index.html ]; then
-            for candidate in dist build out; do
-              if [ -f "${candidate}/index.html" ]; then
-                rm -rf public
-                mkdir -p public
-                rsync -a "${candidate}/" public/
-                break
-              fi
-            done
-          fi
-
-          if [ "${OUTPUT_DIR}" = "public" ] && [ ! -f public/index.html ] && [ -f index.html ]; then
-            mkdir -p public
-            rsync -a \
-              --exclude ".git/" \
-              --exclude ".github/" \
-              --exclude "node_modules/" \
-              --exclude "public/" \
-              ./ public/
-          fi
-
-          if [ ! -f public/index.html ]; then
-            echo "Missing public/index.html after build. Set workflow_dispatch input output_dir correctly."
-            exit 1
-          fi
-
-          echo "adarshkrishnan.com" > public/CNAME
-
-      - name: Upload artefact
-        id: upload
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-pages-artifact@v4
         with:
-          name: site
-          path: public
+          path: build
 
-# ------------------------------------------------------
-# 2a. Default route – publish to GitHub Pages
-# ------------------------------------------------------
-  deploy-pages:
+  deploy:
     if: github.ref == 'refs/heads/main' || github.event_name == 'repository_dispatch'
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: read
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: pages
+      cancel-in-progress: false
     steps:
-      - uses: actions/download-artifact@v4
-        with:
-          name: site
-          path: public
-      - uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -20,6 +20,8 @@
 
 <svelte:head>
 	<link rel="icon" href="/favicon.svg" />
+	<link rel="alternate" type="application/rss+xml" title="{data.settings.siteName} blog" href="/rss.xml" />
+	<meta property="og:site_name" content={data.settings.siteName} />
 </svelte:head>
 
 <a href="#main" class="sr-only">Skip to content</a>
