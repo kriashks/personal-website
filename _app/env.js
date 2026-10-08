@@ -1,1 +1,1 @@
-export const env={}
+export const env={"PUBLIC_SANITY_PROJECT_ID":"xsttrmdn","PUBLIC_SANITY_DATASET":"production","PUBLIC_SANITY_SAMPLE":"0"}
